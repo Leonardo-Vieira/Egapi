@@ -1,0 +1,29 @@
+﻿@inherits Umbraco.Web.Macros.PartialViewMacroPage
+@{
+    var title = Model.MacroParameters["additionalInformationTitle"]  as string;
+    var text = Model.MacroParameters["additionalInformationText"] as string;
+    var image = Model.MacroParameters["additionalInformationImage"] as string;
+}
+<button class="info-btn btn">@title</button>
+<div class="info container">
+    <div class="row">
+        <div class="col-md-10">
+            @text
+        </div>
+        <div class="col-md-2">
+            <img src="@image.GetCropUrl()" alt=""/>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        //mostra a text-box search
+        $(".info-btn").click(function () {
+            $(".info").css("display", "block");
+            /*$(".info").animate({
+                opacity: "toggle",
+                width: "toggle"
+            });*/
+        });
+    });
+</script>

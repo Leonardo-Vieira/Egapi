@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32319.34
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Egapi.Web", "Egapi.Web\Egapi.Web.csproj", "{05F018A0-1A02-48C2-B9AC-2586C93401E3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Egapi.Core", "Egapi.Core\Egapi.Core.csproj", "{1BB0BDD9-F757-4FA2-8332-EE08A8E0CF96}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{05F018A0-1A02-48C2-B9AC-2586C93401E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05F018A0-1A02-48C2-B9AC-2586C93401E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05F018A0-1A02-48C2-B9AC-2586C93401E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05F018A0-1A02-48C2-B9AC-2586C93401E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1BB0BDD9-F757-4FA2-8332-EE08A8E0CF96}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1BB0BDD9-F757-4FA2-8332-EE08A8E0CF96}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1BB0BDD9-F757-4FA2-8332-EE08A8E0CF96}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1BB0BDD9-F757-4FA2-8332-EE08A8E0CF96}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EE8258D4-0970-4CF1-90C5-7BFBB043B7DE}
+	EndGlobalSection
+EndGlobal

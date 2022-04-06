@@ -1,0 +1,91 @@
+
+
+
+#search {
+    padding: 8px;
+}
+
+    #search:hover {
+        cursor: pointer;
+    }
+
+a {
+    color: #7ab4ff;
+}
+
+body {
+    background-color: #828282;
+}
+
+.title-separator {
+    margin-bottom: 35px;
+    border-bottom: 1px solid;
+}
+
+/* footer */
+#btn-back-to-top {
+    height: 50px;
+    width: 50px;
+    background-color: #193259;
+    color: white;
+    z-index: 99;
+    position: relative;
+    top: 25px;
+    border-width: thick;
+    border: solid;
+}
+
+    #btn-back-to-top div {
+        padding: 5px 0px 3px 2px;
+        font-size: 22px;
+    }
+
+.footer-card {
+    background-color: #343a40;
+}
+/* footer */
+
+/* navbar */
+#text-box-search {
+    display: none;
+}
+/* navbar */
+
+/* Content Page */
+.content-page-img {
+    width: 450px;
+}
+
+.more-about {
+    background-color: #343a40;
+}
+/* Content Page */
+/* Additional Information */
+.info {
+    display: none;
+}
+/* Additional Information */
+
+/* Jumbotron / hero */
+.home-hero {
+    background: no-repeat center center;
+    background-attachment: scroll;
+    position: relative;
+    background-size: cover;
+    color: white;
+}
+
+    .home-hero > .overlay {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: rgba(31, 3, 103, 0.80);
+        z-index: 1;
+    }
+
+    .home-hero > .inner {
+        position: relative;
+        z-index: 2;
+    }
