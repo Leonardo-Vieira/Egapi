@@ -2,6 +2,26 @@
 @using ContentModels = Umbraco.Web.PublishedModels;
 @using System.Text.RegularExpressions;
 @{
+    // RICHTEXT EDITOR EM CODIGO
+    var title = Model.MacroParameters["additionalInformationTitle"] as string;
+    var image = Model.MacroParameters["additionalInformationImage"] as string;
+
+    // Create a variable for the GUID of the page you want to update
+    var guid = Guid.Parse("32e60db4-1283-4caa-9645-f2153f9888ef");
+
+    // Get the page using the GUID you've defined
+    var content = Services.ContentService.GetById(guid); // ID of your page
+
+    // Create a variable for the desired value
+    var htmlValue = new HtmlString("Add some text <strong>here</strong>");
+
+    // Set the value of the property with alias 'richText'.
+    content.SetValue("richText", htmlValue);
+
+    // Save the change
+    Services.ContentService.Save(content);
+}
+@{
     var selection = Umbraco.Content(Guid.Parse("79f8284c-ebc9-416f-9571-951c93041d24"))
     .ChildrenOfType("contentPage")
     .Where(x => x.IsVisible())

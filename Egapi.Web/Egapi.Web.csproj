@@ -2799,8 +2799,6 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_Data\Models\all.generated.cs" />
-    <Compile Include="App_Data\Models\models.generated.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -2821,8 +2819,6 @@
     <Content Include="App_Data\Logs\UmbracoTraceLog.DESKTOP-VIEIRA.20220404.json" />
     <Content Include="App_Data\Logs\UmbracoTraceLog.DESKTOP-VIEIRA.20220405.json" />
     <Content Include="App_Data\Logs\UmbracoTraceLog.DESKTOP-VIEIRA.20220406.json" />
-    <Content Include="App_Data\Models\all.dll.path" />
-    <Content Include="App_Data\Models\models.hash" />
     <Content Include="App_Data\packages\createdPackages.config" />
     <Content Include="App_Data\packages\installedPackages.config" />
     <Content Include="App_Data\TEMP\ExamineIndexes\External\segments.gen" />
@@ -2877,6 +2873,9 @@
     <Content Include="App_Data\TEMP\NuCache\NuCache.Media.tlog" />
     <Content Include="App_Data\TEMP\TypesCache\umbraco-types.DESKTOP-VIEIRA.hash" />
     <Content Include="App_Data\TEMP\TypesCache\umbraco-types.DESKTOP-VIEIRA.list" />
+    <Content Include="App_Plugins\RichTextMacro\package.manifest.json" />
+    <Content Include="App_Plugins\RichTextMacro\RichTextMacro.html" />
+    <Content Include="App_Plugins\RichTextMacro\RichTextMacro.controller.js" />
     <None Include="packages.config" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\Partials\Grid\Editors\Textstring.cshtml" />
@@ -2894,7 +2893,6 @@
     <Content Include="Views\Partials\Main\NavBar.cshtml" />
     <Content Include="Views\ContentPage.cshtml" />
     <Content Include="Views\Partials\More About Us Card.cshtml" />
-    <Content Include="Views\Partials\Additional Information.cshtml" />
     <Content Include="Views\MacroPartials\Additional Information.cshtml" />
     <Content Include="Umbraco\assets\fonts\helveticons\helveticons.eot" />
     <Content Include="Umbraco\assets\fonts\helveticons\helveticons.ttf" />

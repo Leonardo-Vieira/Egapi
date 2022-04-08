@@ -17,7 +17,7 @@ using Umbraco.Core.Models.PublishedContent;
 using Umbraco.Web;
 using Umbraco.ModelsBuilder.Embedded;
 
-[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "d93f10a10388f5ad")]
+[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "4af67c180b22681f")]
 [assembly:System.Reflection.AssemblyVersion("0.0.0.1")]
 
 namespace Umbraco.Web.PublishedModels
@@ -79,6 +79,13 @@ namespace Umbraco.Web.PublishedModels
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.18.2")]
 		[ImplementPropertyType("contentPageCategory")]
 		public virtual global::System.Collections.Generic.IEnumerable<string> ContentPageCategory => this.Value<global::System.Collections.Generic.IEnumerable<string>>("contentPageCategory");
+
+		///<summary>
+		/// Content Page Grid
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.18.2")]
+		[ImplementPropertyType("contentPageGrid")]
+		public virtual global::Newtonsoft.Json.Linq.JToken ContentPageGrid => this.Value<global::Newtonsoft.Json.Linq.JToken>("contentPageGrid");
 
 		///<summary>
 		/// Content Page Images
