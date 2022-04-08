@@ -1,6 +1,7 @@
 
 
 
+/* NavBar */
 #search {
     padding: 8px;
 }
@@ -8,7 +9,9 @@
     #search:hover {
         cursor: pointer;
     }
+/* NavBar */
 
+/* Generic */
 a {
     color: #7ab4ff;
 }
@@ -21,7 +24,15 @@ body {
     margin-bottom: 35px;
     border-bottom: 1px solid;
 }
+/* Generic */
 
+/* Home */
+.egapiCarousel {
+    max-height: 350px;
+    max-width: 940px;
+    margin: auto;
+}
+/* Home */
 /* footer */
 #btn-back-to-top {
     height: 50px;
@@ -60,6 +71,7 @@ body {
     background-color: #343a40;
 }
 /* Content Page */
+
 /* Additional Information */
 .info {
     display: none;

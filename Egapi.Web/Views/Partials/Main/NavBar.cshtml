@@ -14,20 +14,28 @@
                         <a class="nav-link" href="#">Sobre nós<span class="sr-only">(current)</span></a>
                     </li>
                     @{
-                        string[] navLinks = { "Mecados", "Soluções", "Produtos", "Notícias" };
+                        var contentPage = Umbraco.ContentAtRoot().DescendantsOrSelfOfType("contentPage").ToList();
+                        
+                        //falta colocar as Tags a darem |
+                        //                              |
+                        //                             \_/
+                        string[] navLinks = { "Soluções", "Mecados", "Produtos", "Notícias" };
                     }
-                    @for (int i = 0; i < navLinks.Count(); i++)
+                    @foreach (var navLink in navLinks)
                     {
                         <li class="nav-item dropdown">
-                            <!-- href="/content/" -->
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                @navLinks[i]
+                                @navLink
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="#">Action</a>
-                                <a class="dropdown-item" href="#">Another action</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Something else here</a>
+                                @if (navLink == "Soluções")
+                                {
+                                    foreach (var contentPageItem in contentPage)
+                                    {
+                                        string title = contentPageItem.Value<string>("contentPageTitle");
+                                        <a class="dropdown-item" href="@contentPageItem.Url">@title</a>
+                                    }
+                                }
                             </div>
                         </li>
                     }
