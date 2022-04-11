@@ -313,9 +313,6 @@
     <Content Include="App_Data\cache\c\3\6\7\f\2\c367f26066b2d87ca924d7bae9f89fa509217c81.jpg" />
     <Content Include="App_Data\cache\e\4\6\3\e\2\e463e239a9bbdd375472c378082f35ee8d8c3e54.jpg" />
     <Content Include="App_Data\cache\f\d\1\b\f\2\fd1bf2d3a8f6c90651f10e18f69291d9b49a733a.jpg" />
-    <Content Include="App_Data\TEMP\ClientDependency\DESKTOP-VIEIRA-5243546c8d50eafb9f6607141113f14c-map.xml" />
-    <Content Include="App_Data\TEMP\ClientDependency\DESKTOP-VIEIRA-8550cb5c1568be77fd74118fd8980ec4-map.xml" />
-    <Content Include="App_Data\TEMP\DistCache\LMW3SVC2ROOT-lastsynced.txt" />
     <Content Include="App_Data\Umbraco.sdf" />
     <Content Include="config\grid.editors.config.js" />
     <Content Include="config\Lang\cs-CZ.user.xml" />
@@ -2821,58 +2818,6 @@
     <Content Include="App_Data\Logs\UmbracoTraceLog.DESKTOP-VIEIRA.20220406.json" />
     <Content Include="App_Data\packages\createdPackages.config" />
     <Content Include="App_Data\packages\installedPackages.config" />
-    <Content Include="App_Data\TEMP\ExamineIndexes\External\segments.gen" />
-    <Content Include="App_Data\TEMP\ExamineIndexes\External\segments_19" />
-    <Content Include="App_Data\TEMP\ExamineIndexes\External\_14.fdt" />
-    <Content Include="App_Data\TEMP\ExamineIndexes\External\_14.fdx" />
-    <Content Include="App_Data\TEMP\ExamineIndexes\External\_14.fnm" />
-    <Content Include="App_Data\TEMP\ExamineIndexes\External\_14.frq" />
-    <Content Include="App_Data\TEMP\ExamineIndexes\External\_14.nrm" />
-    <Content Include="App_Data\TEMP\ExamineIndexes\External\_14.prx" />
-    <Content Include="App_Data\TEMP\ExamineIndexes\External\_14.tii" />
-    <Content Include="App_Data\TEMP\ExamineIndexes\External\_14.tis" />
-    <Content Include="App_Data\TEMP\ExamineIndexes\External\_14.tvd" />
-    <Content Include="App_Data\TEMP\ExamineIndexes\External\_14.tvf" />
-    <Content Include="App_Data\TEMP\ExamineIndexes\External\_14.tvx" />
-    <Content Include="App_Data\TEMP\ExamineIndexes\External\_14_1.del" />
-    <Content Include="App_Data\TEMP\ExamineIndexes\External\_15.cfs" />
-    <Content Include="App_Data\TEMP\ExamineIndexes\External\_15_1.del" />
-    <Content Include="App_Data\TEMP\ExamineIndexes\External\_16.cfs" />
-    <Content Include="App_Data\TEMP\ExamineIndexes\Internal\segments.gen" />
-    <Content Include="App_Data\TEMP\ExamineIndexes\Internal\segments_1a" />
-    <Content Include="App_Data\TEMP\ExamineIndexes\Internal\_15.cfs" />
-    <Content Include="App_Data\TEMP\ExamineIndexes\Internal\_15_1.del" />
-    <Content Include="App_Data\TEMP\ExamineIndexes\Internal\_17.cfs" />
-    <Content Include="App_Data\TEMP\ExamineIndexes\Internal\_17_1.del" />
-    <Content Include="App_Data\TEMP\ExamineIndexes\Internal\_18.fdt" />
-    <Content Include="App_Data\TEMP\ExamineIndexes\Internal\_18.fdx" />
-    <Content Include="App_Data\TEMP\ExamineIndexes\Internal\_18.fnm" />
-    <Content Include="App_Data\TEMP\ExamineIndexes\Internal\_18.frq" />
-    <Content Include="App_Data\TEMP\ExamineIndexes\Internal\_18.nrm" />
-    <Content Include="App_Data\TEMP\ExamineIndexes\Internal\_18.prx" />
-    <Content Include="App_Data\TEMP\ExamineIndexes\Internal\_18.tii" />
-    <Content Include="App_Data\TEMP\ExamineIndexes\Internal\_18.tis" />
-    <Content Include="App_Data\TEMP\ExamineIndexes\Internal\_18.tvd" />
-    <Content Include="App_Data\TEMP\ExamineIndexes\Internal\_18.tvf" />
-    <Content Include="App_Data\TEMP\ExamineIndexes\Internal\_18.tvx" />
-    <Content Include="App_Data\TEMP\ExamineIndexes\Internal\_18_1.del" />
-    <Content Include="App_Data\TEMP\ExamineIndexes\Internal\_19.cfs" />
-    <Content Include="App_Data\TEMP\ExamineIndexes\Internal\_19_1.del" />
-    <Content Include="App_Data\TEMP\ExamineIndexes\Internal\_1a.cfs" />
-    <Content Include="App_Data\TEMP\ExamineIndexes\Internal\_1a_1.del" />
-    <Content Include="App_Data\TEMP\ExamineIndexes\Internal\_1b.cfs" />
-    <Content Include="App_Data\TEMP\ExamineIndexes\Internal\_1b_1.del" />
-    <Content Include="App_Data\TEMP\ExamineIndexes\Internal\_1c.cfs" />
-    <Content Include="App_Data\TEMP\ExamineIndexes\Internal\_1c_1.del" />
-    <Content Include="App_Data\TEMP\ExamineIndexes\Internal\_1d.cfs" />
-    <Content Include="App_Data\TEMP\ExamineIndexes\Members\segments.gen" />
-    <Content Include="App_Data\TEMP\ExamineIndexes\Members\segments_1" />
-    <Content Include="App_Data\TEMP\NuCache\NuCache.Content.db" />
-    <Content Include="App_Data\TEMP\NuCache\NuCache.Content.tlog" />
-    <Content Include="App_Data\TEMP\NuCache\NuCache.Media.db" />
-    <Content Include="App_Data\TEMP\NuCache\NuCache.Media.tlog" />
-    <Content Include="App_Data\TEMP\TypesCache\umbraco-types.DESKTOP-VIEIRA.hash" />
-    <Content Include="App_Data\TEMP\TypesCache\umbraco-types.DESKTOP-VIEIRA.list" />
     <Content Include="App_Plugins\RichTextMacro\package.manifest.json" />
     <Content Include="App_Plugins\RichTextMacro\RichTextMacro.html" />
     <Content Include="App_Plugins\RichTextMacro\RichTextMacro.controller.js" />
@@ -2998,10 +2943,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\TEMP\FileUploads\" />
-    <Folder Include="App_Data\TEMP\Install\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

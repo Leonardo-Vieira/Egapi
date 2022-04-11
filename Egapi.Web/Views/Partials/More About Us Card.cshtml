@@ -1,4 +1,4 @@
-﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<ContentModels.ContentPage>
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage
 @using ContentModels = Umbraco.Web.PublishedModels;
 @using System.Text.RegularExpressions;
 @{
@@ -16,34 +16,12 @@
     <div class="card-deck">
         @foreach (var item in selection)
         {
-            //transforms the html text into text
-            var htmlText = item.Value("contentPageText").ToString();
             var imgs = item.Value<IEnumerable<IPublishedContent>>("contentPageImages");
-
-            //gets the first paragraph
-            Match m = Regex.Match(htmlText, @"<p>\s*(.+?)\s*</p>");
-
-            //removes the <p> tag
-            var text = Regex.Replace(m.Groups[0].Value, "<.*?>", String.Empty);
-
             <div class="card more-about">
-                <!-- https://www.google.com/search?q=System.Collections.Generic.List%601%5BUmbraco.Core.Models.MediaWithCrops%5D&oq=System.Collections.Generic.List%601%5BUmbraco.Core.Models.MediaWithCrops%5D&aqs=edge..69i57.599j0j4&sourceid=chrome&ie=UTF-8 -->
-                @{
-                    //gets the first photo of the slider to display it on the card
-                    int i = 0;
-                    foreach (var img in imgs)
-                    {
-                        if (i == 0)
-                        {
-                            i++;
-                            <img class="card-img-top" src="@img.Url" alt="Card Image">
-                            break;
-                        }
-                    }
-                }
+                <img class="card-img-top" src="@imgs.FirstOrDefault().Url" alt="Card Image">
                 <div class="card-body">
                     <h5 class="card-title">@item.Value("contentPageTitle")</h5>
-                    <p class="card-text">@text</p>
+                    <p class="card-text">@item.Value("contentPageDescription")</p>
                 </div>
                 <div class="card-footer">
                     <div><strong><a href="@item.Url">Read more</a></strong></div>

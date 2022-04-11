@@ -2,10 +2,25 @@
 @using ContentModels = Umbraco.Web.PublishedModels;
 @using System.Text.RegularExpressions;
 @{
-    var selection = Umbraco.Content(Guid.Parse("79f8284c-ebc9-416f-9571-951c93041d24"))
+    var contentPages = Umbraco.Content(Guid.Parse("79f8284c-ebc9-416f-9571-951c93041d24"))
     .ChildrenOfType("contentPage")
     .Where(x => x.IsVisible())
-    .Take(3);
+    .OrderBy(x => x.Value<string>("contentPageCategory"));
+
+    List<string> categories = new List<string>();
+
+    foreach (var contentPage in contentPages)
+    {
+        //get the first category from the contentPage
+        var contentPageCat = contentPage.Value<string[]>("contentPageCategory")[0];
+
+        //if the category does not exist add it
+        if (!categories.Contains(contentPageCat) || categories.Count <= 0)
+        {
+            categories.Add(contentPageCat);
+        }
+    }
+    string active = "active";
 }
 <div class="mt-4">
     <div class="title-separator row">
@@ -13,40 +28,49 @@
             <h2>Saiba mais sobre os nossos produtos</h2>
         </div>
     </div>
-    <div class="card-deck">
-        @foreach (var item in selection)
+    <div class="row">
+        @for (int i = 0; i < categories.Count(); i++)
         {
-            //transforms the html text into text
-            var htmlText = item.Value("contentPageText").ToString();
-            var imgs = item.Value<IEnumerable<IPublishedContent>>("contentPageImages");
-
-            //gets the first paragraph
-            Match m = Regex.Match(htmlText, @"<p>\s*(.+?)\s*</p>");
-
-            //removes the <p> tag
-            var text = Regex.Replace(m.Groups[0].Value, "<.*?>", String.Empty);
-
-            <div class="card more-about">
-                <!-- https://www.google.com/search?q=System.Collections.Generic.List%601%5BUmbraco.Core.Models.MediaWithCrops%5D&oq=System.Collections.Generic.List%601%5BUmbraco.Core.Models.MediaWithCrops%5D&aqs=edge..69i57.599j0j4&sourceid=chrome&ie=UTF-8 -->
-                @{
-                    //gets the first photo of the slider to display it on the card
-                    int i = 0;
-                    foreach (var img in imgs)
-                    {
-                        if (i == 0)
-                        {
-                            i++;
-                            <img class="card-img-top" src="@img.Url" alt="Card Image">
-                            break;
-                        }
-                    }
-                }
-                <div class="card-body">
-                    <h5 class="card-title">@item.Value("contentPageTitle")</h5>
-                    <p class="card-text">@text</p>
-                </div>
-                <div class="card-footer">
-                    <div><strong><a href="@item.Url">Read more</a></strong></div>
+            <div class="col">
+                <div style="max-width: 270px; margin: auto;">
+                    <div id="cardCarouselIndicators_@i" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="card-deck" style="min-height: 500px;">
+                                @foreach (var contentPage in contentPages)
+                                {
+                                    if (categories[i] == contentPage.Value<string[]>("contentPageCategory")[0])
+                                    {
+                                        var imgs = contentPage.Value<IEnumerable<IPublishedContent>>("contentPageImages");
+                                        <div class="carousel-item @active" style="max-width: 300px; min-width: 300px;">
+                                            <div class="card more-about">
+                                                <img class="card-img-top" src="@imgs.FirstOrDefault().Url" alt="@contentPage.Value("contentPageTitle")"
+                                                     >
+                                                <div class="card-body">
+                                                    <h5 class="card-title">@contentPage.Value("contentPageTitle")</h5>
+                                                    <p class="card-text">@contentPage.Value("contentPageDescription")</p>
+                                                </div>
+                                                <div class="card-footer">
+                                                    <div><strong><a href="@contentPage.Url">Read more</a></strong></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        if (!string.IsNullOrEmpty(active))
+                                        {
+                                            active = "";
+                                        }
+                                    }
+                                }
+                            </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#cardCarouselIndicators_@i" role="button" data-slide="prev" style="margin-bottom: 90px;">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#cardCarouselIndicators_@i" role="button" data-slide="next" style="margin-bottom: 90px;">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
                 </div>
             </div>
         }
