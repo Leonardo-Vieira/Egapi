@@ -40,6 +40,28 @@ body {
     min-width: 470px;
     margin: auto;
 }
+
+.cardRow {
+    min-height: 550px;
+}
+
+.cardCarousel {
+    max-width: 270px;
+    margin: auto;
+}
+
+.cardCarouselInner {
+    min-height: 550px;
+}
+
+.cardCarouselItem {
+    max-width: 300px;
+    min-width: 300px;
+}
+
+.cardCarouselArrow {
+    margin-bottom: 90px;
+}
 /* Home */
 /* footer */
 #btn-back-to-top {
