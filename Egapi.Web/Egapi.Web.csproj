@@ -298,22 +298,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\cache\0\0\b\3\f\8\00b3f86d4be161106050e333264c2e6b44f66b65.jpg" />
-    <Content Include="App_Data\cache\1\5\2\e\5\4\152e549666a9cf0c07fad77c631e544a77118635.jpg" />
-    <Content Include="App_Data\cache\1\f\3\d\5\0\1f3d50892f60409e7fc9ddbf9977ab76693a7998.jpg" />
-    <Content Include="App_Data\cache\2\b\8\7\4\5\2b8745d9c75190ab950b53648889d763b0018178.jpg" />
-    <Content Include="App_Data\cache\2\d\e\6\4\2\2de64205b9c7231c206acbd66fbec50d790a97bf.jpg" />
-    <Content Include="App_Data\cache\3\9\c\6\3\2\39c6327c8921f10a51ad81063b8f439af154cb94.jpg" />
-    <Content Include="App_Data\cache\3\a\1\a\d\8\3a1ad8ff19d14e9001ecb8e9e1ae53c53e7bffd6.jpg" />
-    <Content Include="App_Data\cache\4\e\4\d\a\f\4e4daf2dfb55b95ec190daee28c25e065efd1516.jpg" />
-    <Content Include="App_Data\cache\5\5\1\8\2\b\55182b1c95ed73fa3bf7da74cf7cc486d88dda22.jpg" />
-    <Content Include="App_Data\cache\6\8\2\e\b\b\682ebbb1406dfec516f75f226b9b89653a026081.jpg" />
-    <Content Include="App_Data\cache\9\c\1\4\7\2\9c1472c96f5594f6e1d1b2ecc6bff70a8347f420.jpg" />
-    <Content Include="App_Data\cache\a\1\8\5\3\b\a1853b3b7130bdc3fb090e53d76bb74f52a9a1ee.jpg" />
-    <Content Include="App_Data\cache\c\3\6\7\f\2\c367f26066b2d87ca924d7bae9f89fa509217c81.jpg" />
-    <Content Include="App_Data\cache\e\4\6\3\e\2\e463e239a9bbdd375472c378082f35ee8d8c3e54.jpg" />
-    <Content Include="App_Data\cache\f\d\1\b\f\2\fd1bf2d3a8f6c90651f10e18f69291d9b49a733a.jpg" />
-    <Content Include="App_Data\Umbraco.sdf" />
     <Content Include="config\grid.editors.config.js" />
     <Content Include="config\Lang\cs-CZ.user.xml" />
     <Content Include="config\Lang\da-DK.user.xml" />
@@ -2810,14 +2794,6 @@
     <Content Include="config\HealthChecks.config" />
     <Content Include="config\ClientDependency.config" />
     <Content Include="config\BackOfficeTours\getting-started.json" />
-    <Content Include="App_Data\Logs\UmbracoTraceLog.DESKTOP-VIEIRA.20220330.json" />
-    <Content Include="App_Data\Logs\UmbracoTraceLog.DESKTOP-VIEIRA.20220331.json" />
-    <Content Include="App_Data\Logs\UmbracoTraceLog.DESKTOP-VIEIRA.20220401.json" />
-    <Content Include="App_Data\Logs\UmbracoTraceLog.DESKTOP-VIEIRA.20220404.json" />
-    <Content Include="App_Data\Logs\UmbracoTraceLog.DESKTOP-VIEIRA.20220405.json" />
-    <Content Include="App_Data\Logs\UmbracoTraceLog.DESKTOP-VIEIRA.20220406.json" />
-    <Content Include="App_Data\packages\createdPackages.config" />
-    <Content Include="App_Data\packages\installedPackages.config" />
     <Content Include="App_Plugins\RichTextMacro\package.manifest.json" />
     <Content Include="App_Plugins\RichTextMacro\RichTextMacro.html" />
     <Content Include="App_Plugins\RichTextMacro\RichTextMacro.controller.js" />
@@ -2936,6 +2912,10 @@
     <Content Include="Umbraco\Views\Preview\Index.cshtml" />
     <Content Include="Umbraco\Views\web.config" />
     <Content Include="Views\Partials\More About Us Card Carousel.cshtml" />
+    <Content Include="Views\Login.cshtml" />
+    <Content Include="Views\Logout.cshtml" />
+    <Content Include="Views\Register.cshtml" />
+    <Content Include="Views\Partials\Register.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -2943,7 +2923,12 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Egapi.Core\Egapi.Core.csproj">
+      <Project>{1bb0bdd9-f757-4fa2-8332-ee08a8e0cf96}</Project>
+      <Name>Egapi.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
