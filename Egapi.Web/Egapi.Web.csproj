@@ -298,6 +298,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\TEMP\ClientDependency\DESKTOP-VIEIRA-b860b17a64ff1cddb7e7efe725878f3e-map.xml" />
+    <Content Include="App_Data\TEMP\DistCache\LMW3SVC2ROOT-lastsynced.txt" />
+    <Content Include="App_Data\Umbraco.sdf" />
     <Content Include="config\grid.editors.config.js" />
     <Content Include="config\Lang\cs-CZ.user.xml" />
     <Content Include="config\Lang\da-DK.user.xml" />
@@ -2797,6 +2800,25 @@
     <Content Include="App_Plugins\RichTextMacro\package.manifest.json" />
     <Content Include="App_Plugins\RichTextMacro\RichTextMacro.html" />
     <Content Include="App_Plugins\RichTextMacro\RichTextMacro.controller.js" />
+    <Content Include="App_Data\Logs\UmbracoTraceLog.DESKTOP-VIEIRA.20220330.json" />
+    <Content Include="App_Data\Logs\UmbracoTraceLog.DESKTOP-VIEIRA.20220331.json" />
+    <Content Include="App_Data\Logs\UmbracoTraceLog.DESKTOP-VIEIRA.20220401.json" />
+    <Content Include="App_Data\Logs\UmbracoTraceLog.DESKTOP-VIEIRA.20220404.json" />
+    <Content Include="App_Data\Logs\UmbracoTraceLog.DESKTOP-VIEIRA.20220405.json" />
+    <Content Include="App_Data\Logs\UmbracoTraceLog.DESKTOP-VIEIRA.20220406.json" />
+    <Content Include="App_Data\Logs\UmbracoTraceLog.DESKTOP-VIEIRA.20220407.json" />
+    <Content Include="App_Data\Logs\UmbracoTraceLog.DESKTOP-VIEIRA.20220408.json" />
+    <Content Include="App_Data\Logs\UmbracoTraceLog.DESKTOP-VIEIRA.20220411.json" />
+    <Content Include="App_Data\Logs\UmbracoTraceLog.DESKTOP-VIEIRA.20220412.json" />
+    <Content Include="App_Data\Logs\UmbracoTraceLog.DESKTOP-VIEIRA.20220413.json" />
+    <Content Include="App_Data\packages\createdPackages.config" />
+    <Content Include="App_Data\packages\installedPackages.config" />
+    <Content Include="App_Data\TEMP\NuCache\NuCache.Content.db" />
+    <Content Include="App_Data\TEMP\NuCache\NuCache.Content.tlog" />
+    <Content Include="App_Data\TEMP\NuCache\NuCache.Media.db" />
+    <Content Include="App_Data\TEMP\NuCache\NuCache.Media.tlog" />
+    <Content Include="App_Data\TEMP\TypesCache\umbraco-types.DESKTOP-VIEIRA.hash" />
+    <Content Include="App_Data\TEMP\TypesCache\umbraco-types.DESKTOP-VIEIRA.list" />
     <None Include="packages.config" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\Partials\Grid\Editors\Textstring.cshtml" />
@@ -2928,6 +2950,11 @@
       <Project>{1bb0bdd9-f757-4fa2-8332-ee08a8e0cf96}</Project>
       <Name>Egapi.Core</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\TEMP\ExamineIndexes\External\" />
+    <Folder Include="App_Data\TEMP\ExamineIndexes\Internal\" />
+    <Folder Include="App_Data\TEMP\ExamineIndexes\Members\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

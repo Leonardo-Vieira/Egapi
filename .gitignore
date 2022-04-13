@@ -11,7 +11,7 @@
 *.sln.docstates
 
 # My Folders
-/Egapi.Web/App_Data/
+## /Egapi.Web/App_Data/
 
 # My Files
 
