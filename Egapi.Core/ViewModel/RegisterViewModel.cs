@@ -26,6 +26,11 @@ namespace Egapi.Core.ViewModel
         [MinLength(3)]
         public string Username { get; set; }
 
+        [Display(Name = "Email")]
+        [Required(ErrorMessage = "Please enter your Email")]
+        [EmailAddress(ErrorMessage = "Please enter a valid Email address")]
+        public string Email { get; set; }
+
         [UIHint("Password")]
         [Display(Name = "Password")]
         [Required(ErrorMessage = "Please enter your Password")]

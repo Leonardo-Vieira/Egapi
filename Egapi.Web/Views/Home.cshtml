@@ -16,11 +16,11 @@
             {
                 if (i != 0)
                 {
-                    <li data-target="#carouselExampleIndicators" data-slide-to="@i"></li>
+                    <li data-target="#mainCarouselIndicators" data-slide-to="@i"></li>
                 }
                 else
                 {
-                    <li data-target="#carouselExampleIndicators" data-slide-to="@i" class="active"></li>
+                    <li data-target="#mainCarouselIndicators" data-slide-to="@i" class="active"></li>
                 }
             }
         </ol>
@@ -28,11 +28,21 @@
             @foreach (var item in selection)
             {
                 var imgs = item.Value<IEnumerable<IPublishedContent>>("contentPageImages");
+                var contentPageTitle = item.Value<string>("contentPageTitle");
+                var contentPageDescription = item.Value<string>("contentPageDescription");
                 <div class="carousel-item @active">
                     <img class="d-block carouselImg" src="@imgs.FirstOrDefault().Url" alt="First slide">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>Segurança</h5>
-                        <p>Segure a segurança</p>
+                    <div class="carousel-text carousel-caption d-none d-md-block">
+                        <h1>
+                            <strong>
+                                @contentPageTitle
+                            </strong>
+                        </h1>
+                        <p>
+                            <strong>
+                                @contentPageDescription
+                            </strong>
+                        </p>
                     </div>
                 </div>
                 if (!string.IsNullOrEmpty(active))
@@ -52,5 +62,4 @@
     </div>
 </div>
 
-<!-- Cards    TAVA AQUI A TRATAR DOS CARDS POR CAUSA DAS CATEGORIAS-->
-@Html.Partial("More About Us Card Carousel")
+@Html.Partial("Cards/More About Us Card Carousel")

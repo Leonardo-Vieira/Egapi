@@ -93,6 +93,7 @@ Umbraco.Core.Migrations.Upgrade.V_8_0_0.DataTypes.PreValueMigratorComposer, Umbr
 Umbraco.Core.Logging.Viewer.LogViewerComposer, Umbraco.Core, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null
 Umbraco.Core.Services.Implement.KeyValueService+InitializeMigration, Umbraco.Core, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null
 Egapi.Core.RegisterServicesComposer, Egapi.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+Egapi.Core.Controllers.LoginController, Egapi.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
 Egapi.Core.Controllers.RegisterController, Egapi.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
 Umbraco.ModelsBuilder.Embedded.ModelsBuilderDashboard, Umbraco.ModelsBuilder.Embedded, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null
 Umbraco.ModelsBuilder.Embedded.Compose.ModelsBuilderComposer, Umbraco.ModelsBuilder.Embedded, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null
@@ -380,6 +381,7 @@ Umbraco.Web.PropertyEditors.ValueConverters.RteMacroRenderingValueConverter, Umb
 
 Umbraco.Web.Mvc.PluginController
 
+Egapi.Core.Controllers.LoginController, Egapi.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
 Egapi.Core.Controllers.RegisterController, Egapi.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
 Umbraco.Web.Controllers.UmbProfileController, Umbraco.Web, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null
 Umbraco.Web.Controllers.UmbLoginStatusController, Umbraco.Web, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null
@@ -468,6 +470,7 @@ Umbraco.Web.Editors.MediaController, Umbraco.Web, Version=8.0.0.0, Culture=neutr
 
 Umbraco.Web.Mvc.SurfaceController
 
+Egapi.Core.Controllers.LoginController, Egapi.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
 Egapi.Core.Controllers.RegisterController, Egapi.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
 Umbraco.Web.Controllers.UmbProfileController, Umbraco.Web, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null
 Umbraco.Web.Controllers.UmbLoginStatusController, Umbraco.Web, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null

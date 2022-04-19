@@ -2835,7 +2835,7 @@
     <Content Include="Views\Partials\Main\Footer.cshtml" />
     <Content Include="Views\Partials\Main\NavBar.cshtml" />
     <Content Include="Views\ContentPage.cshtml" />
-    <Content Include="Views\Partials\More About Us Card.cshtml" />
+    <Content Include="Views\Partials\Cards\More About Us Card.cshtml" />
     <Content Include="Views\MacroPartials\Additional Information.cshtml" />
     <Content Include="Umbraco\assets\fonts\helveticons\helveticons.eot" />
     <Content Include="Umbraco\assets\fonts\helveticons\helveticons.ttf" />
@@ -2933,11 +2933,14 @@
     <Content Include="Umbraco\Views\Default.cshtml" />
     <Content Include="Umbraco\Views\Preview\Index.cshtml" />
     <Content Include="Umbraco\Views\web.config" />
-    <Content Include="Views\Partials\More About Us Card Carousel.cshtml" />
+    <Content Include="Views\Partials\Cards\More About Us Card Carousel.cshtml" />
     <Content Include="Views\Login.cshtml" />
     <Content Include="Views\Logout.cshtml" />
     <Content Include="Views\Register.cshtml" />
-    <Content Include="Views\Partials\Register.cshtml" />
+    <Content Include="Views\Partials\Authentication\Register.cshtml" />
+    <Content Include="Views\Partials\Authentication\EmailVerification.cshtml" />
+    <Content Include="Views\Verify.cshtml" />
+    <Content Include="Views\Partials\Authentication\Login.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

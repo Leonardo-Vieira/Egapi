@@ -1,8 +1,11 @@
-﻿using System;
+﻿using Egapi.Core.Interfaces;
+using Egapi.Core.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Umbraco.Core;
 using Umbraco.Core.Composing;
 
 namespace Egapi.Core
@@ -11,7 +14,7 @@ namespace Egapi.Core
     {
         public void Compose(Composition composition)
         {
-            //composition.Register<IEmailService, EmailService>(Lifetime.Request);
+            composition.Register<IEmailService, EmailService>(Lifetime.Request);
         }
     }
 }

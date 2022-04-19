@@ -33,6 +33,14 @@ body {
     margin: auto;
 }
 
+#mainCarouselIndicators .carousel-control-prev {
+    margin-left: 130px;
+}
+
+#mainCarouselIndicators .carousel-control-next {
+    margin-right: 130px;
+}
+
 .carouselImg {
     max-height: 280px;
     max-width: 470px;
@@ -62,9 +70,22 @@ body {
 .cardCarouselArrow {
     margin-bottom: 90px;
 }
-/* Home */
-/* footer */
-#btn-back-to-top {
+
+.carousel-text h1, p {
+    max-width: 450px;
+    margin: auto;
+}
+
+.carousel-text h1, p {
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+.carousel-text p {
+    font-size: 20px;
+}
+    /* Home */
+    /* footer */
+    #btn-back-to-top {
     height: 50px;
     width: 50px;
     background-color: #193259;
