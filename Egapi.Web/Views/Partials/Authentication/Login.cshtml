@@ -3,27 +3,41 @@
 @{
     Html.EnableClientValidation();
     Html.EnableUnobtrusiveJavaScript();
+
+    var user = System.Web.Security.Membership.GetUser();
 }
+
 <h1>Login</h1>
 <div class="container">
     <div class="row">
         <div class="col">
-            @Html.ValidationSummary()
-            @using (Html.BeginUmbracoForm<LoginController>("HandleLogin"))
+            @if (Umbraco.MemberIsLoggedOn())
             {
-                @Html.AntiForgeryToken()
-                <div class="form-group">
-                    @Html.LabelFor(u => u.Email)
-                    @Html.TextBoxFor(u => u.Email, new { @class = "form-control", @type = "email" })
-                    @Html.ValidationMessageFor(u => u.Email)
-                </div>
+                if (user != null)
+                {
+                    <h2>You are already logged in @user.UserName</h2>
+                    <a class="btn btn-danger" href="/logout">Log out</a>
+                }
+            }
+            else
+            {
+                using (Html.BeginUmbracoForm<LoginController>("HandleLogin"))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary()
+                    <div class="form-group">
+                        @Html.LabelFor(u => u.Username)
+                        @Html.TextBoxFor(u => u.Username, new { @class = "form-control", placeholder = "Username" })
+                        @Html.ValidationMessageFor(u => u.Username)
+                    </div>
 
-                <div class="form-group">
-                    @Html.LabelFor(u => u.Password)
-                    @Html.TextBoxFor(u => u.Password, new { @class = "form-control", @type = "password" })
-                    @Html.ValidationMessageFor(u => u.Password)
-                </div>
-                <button type="submit" value="Register" name="register-button" class="btn btn-primary">Submit</button>
+                    <div class="form-group">
+                        @Html.LabelFor(u => u.Password)
+                        @Html.TextBoxFor(u => u.Password, new { @class = "form-control", @type = "password", placeholder = "Password" })
+                        @Html.ValidationMessageFor(u => u.Password)
+                    </div>
+                    <button type="submit" value="Login" name="login-button" class="btn btn-primary">Submit</button>
+                }
             }
         </div>
     </div>

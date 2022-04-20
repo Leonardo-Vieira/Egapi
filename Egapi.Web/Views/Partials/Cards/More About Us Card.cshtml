@@ -2,7 +2,7 @@
 @using ContentModels = Umbraco.Web.PublishedModels;
 @using System.Text.RegularExpressions;
 @{
-    var selection = Umbraco.Content(Guid.Parse("79f8284c-ebc9-416f-9571-951c93041d24"))
+    var contentPages = Umbraco.Content(Guid.Parse("79f8284c-ebc9-416f-9571-951c93041d24"))
     .ChildrenOfType("contentPage")
     .Where(x => x.IsVisible())
     .Take(3);
@@ -14,17 +14,25 @@
         </div>
     </div>
     <div class="card-deck">
-        @foreach (var item in selection)
+        @foreach (var contentPage in contentPages)
         {
-            var imgs = item.Value<IEnumerable<IPublishedContent>>("contentPageImages");
+            var imgs = contentPage.Value<IEnumerable<IPublishedContent>>("contentPageImages");
+            var hasCategory = contentPage.Value<string[]>("contentPageCategory").Count();
+            var cardImg = "";
+
             <div class="card more-about">
-                <img class="card-img-top" src="@imgs.FirstOrDefault().Url" alt="Card Image">
+                @if (hasCategory == 0)
+                {
+                    cardImg = "cardImg";
+                }
+                <img class="card-img-top @cardImg" src="@imgs.FirstOrDefault().Url" alt="Card Image">
+
                 <div class="card-body">
-                    <h5 class="card-title">@item.Value("contentPageTitle")</h5>
-                    <p class="card-text">@item.Value("contentPageDescription")</p>
+                    <h5 class="card-title">@contentPage.Value("contentPageTitle")</h5>
+                    <p class="card-text">@contentPage.Value("contentPageDescription")</p>
                 </div>
                 <div class="card-footer">
-                    <div><strong><a href="@item.Url">Read more</a></strong></div>
+                    <div><strong><a href="@contentPage.Url">Saber mais <i class="fa-solid fa-arrow-right"></i></a></strong></div>
                 </div>
             </div>
         }

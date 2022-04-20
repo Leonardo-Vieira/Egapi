@@ -9,14 +9,15 @@ namespace Egapi.Core.ViewModel
 {
     public class LoginViewModel
     {
-        [Display(Name = "Email")]
-        [Required(ErrorMessage = "Please enter your Email")]
-        [EmailAddress(ErrorMessage = "Please enter a valid Email address")]
-        public string Email { get; set; }
+        [Display(Name = "Username")]
+        [Required(ErrorMessage = "Please enter your Username")]
+        public string Username { get; set; }
 
         [UIHint("Password")]
         [Display(Name = "Password")]
         [Required(ErrorMessage = "Please enter your Password")]
         public string Password { get; set; }
+
+        public string RedirectUrl { get; set; }
     }
 }

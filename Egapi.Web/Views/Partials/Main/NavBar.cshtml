@@ -8,8 +8,12 @@
 
     foreach (var contentPage in contentPages)
     {
+        var contentPageCat = "";
         //get the first category from the contentPage
-        var contentPageCat = contentPage.Value<string[]>("contentPageCategory")[0];
+        if (contentPage.Value<string[]>("contentPageCategory").Count() > 0)
+        {
+            contentPageCat = contentPage.Value<string[]>("contentPageCategory")[0];
+        }
 
         //if the category does not exist add it
         if (!categories.Contains(contentPageCat) || categories.Count <= 0)
@@ -20,51 +24,93 @@
 }
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container">
-        <div class="row">
-            <a class="navbar-brand" href="/">
-                <img src="../../imgs/logo.png" height="40" alt="">
-            </a>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">
-                        <!--contactos e serviços estariam aqui tambem-->
-                        <a class="nav-link" href="#">Sobre nós<span class="sr-only">(current)</span></a>
-                    </li>
-                    @foreach (var category in categories)
+    <a class="navbar-brand" href="/">
+        <img src="../../imgs/logo.png" height="40" alt="">
+    </a>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            @foreach (var category in categories)
+            {
+                if (string.IsNullOrEmpty(category))
+                {
+                    foreach (var contentPage in contentPages)
                     {
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                @category
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                @foreach (var contentPage in contentPages)
+                        if (contentPage.Value<string[]>("contentPageCategory").Count() == 0)
+                        {
+                            var title = contentPage.Value<string>("contentPageTitle");
+                            <li class="nav-item">
+                                <!--contactos e serviços estariam aqui tambem-->
+                                <a class="nav-link" href="@contentPage.Url">@title</a>
+                            </li>
+                        }
+                    }
+                }
+                else
+                {
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            @category
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            @foreach (var contentPage in contentPages)
+                            {
+                                if (contentPage.Value<string[]>("contentPageCategory").Count() > 0)
                                 {
                                     if (category == contentPage.Value<string[]>("contentPageCategory")[0])
                                     {
                                         string title = contentPage.Value<string>("contentPageTitle");
-                                        <a class="dropdown-item" href="@contentPage.Url">@title</a>
+                                    <a class="dropdown-item" href="@contentPage.Url">@title</a>
                                     }
                                 }
-                            </div>
-                        </li>
-                    }
-                    <li id="search" class="nav-item">
-                        <i class="text-light fa-solid fa-magnifying-glass"></i>
+                            }
+                        </div>
                     </li>
-                    <li class="nav-item">
-                        <form class="form-inline my-2 my-lg-0">
-                            <input id="text-box-search" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                        </form>
-                    </li>
-                </ul>
-            </div>
-        </div>
+                }
+            }
+            <li id="search" class="nav-item">
+                <i class="text-light fa-solid fa-magnifying-glass"></i>
+            </li>
+            <li class="nav-item">
+                <form class="form-inline my-2 my-lg-0">
+                    <input id="text-box-search" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                </form>
+            </li>
+        </ul>
+        <ul class="navbar-nav mt-2 mt-lg-0">
+            @if (!Umbraco.MemberIsLoggedOn())
+            {
+                <li class="nav-item">
+                    <a class="nav-link" href="/login">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/register">Register</a>
+                </li>
+            }
+            else
+            {
+                <li class="nav-item dropdown dropleft">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fa fa-user-circle"></i>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">My account</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="/logout">Logout</a>
+                    </div>
+                </li>
+            }
+        </ul>
     </div>
 </nav>
 <script>
     $(document).ready(function () {
         //mostra a text-box search
+        $("#search").click(function () {
+            $("#text-box-search").animate({
+                opacity: "toggle",
+                width: "toggle"
+            });
+        });
         $("#search").click(function () {
             $("#text-box-search").animate({
                 opacity: "toggle",

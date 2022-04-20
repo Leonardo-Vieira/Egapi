@@ -2,52 +2,61 @@
 @using ContentModels = Umbraco.Web.PublishedModels;
 @{
     Layout = "Main.cshtml";
-    var selection = Umbraco.Content(Guid.Parse("79f8284c-ebc9-416f-9571-951c93041d24"))
+    var contentPages = Umbraco.Content(Guid.Parse("79f8284c-ebc9-416f-9571-951c93041d24"))
     .ChildrenOfType("contentPage")
     .Where(x => x.IsVisible());
 
     string active = "active";
+    int i = 0;
 }
 <!-- Carousel -->
 <div class="mainCarousel">
     <div id="mainCarouselIndicators" class="carousel slide carousel-fade" data-ride="carousel">
         <ol class="carousel-indicators">
-            @for (int i = 0; i < selection.Count(); i++)
+            @foreach (var contentPage in contentPages)
             {
-                if (i != 0)
+                if (contentPage.Value<string[]>("contentPageCategory").Count() > 0)
                 {
-                    <li data-target="#mainCarouselIndicators" data-slide-to="@i"></li>
-                }
-                else
-                {
-                    <li data-target="#mainCarouselIndicators" data-slide-to="@i" class="active"></li>
+                    if (i != 0)
+                    {
+                        <li data-target="#mainCarouselIndicators" data-slide-to="@i"></li>
+                    }
+                    else
+                    {
+                        <li data-target="#mainCarouselIndicators" data-slide-to="@i" class="active"></li>
+                    }
+                    i++;
                 }
             }
         </ol>
         <div class="carousel-inner">
-            @foreach (var item in selection)
+            @foreach (var contentPage in contentPages)
             {
-                var imgs = item.Value<IEnumerable<IPublishedContent>>("contentPageImages");
-                var contentPageTitle = item.Value<string>("contentPageTitle");
-                var contentPageDescription = item.Value<string>("contentPageDescription");
-                <div class="carousel-item @active">
-                    <img class="d-block carouselImg" src="@imgs.FirstOrDefault().Url" alt="First slide">
-                    <div class="carousel-text carousel-caption d-none d-md-block">
-                        <h1>
-                            <strong>
-                                @contentPageTitle
-                            </strong>
-                        </h1>
-                        <p>
-                            <strong>
-                                @contentPageDescription
-                            </strong>
-                        </p>
-                    </div>
-                </div>
-                if (!string.IsNullOrEmpty(active))
+                var imgs = contentPage.Value<IEnumerable<IPublishedContent>>("contentPageImages");
+                var contentPageTitle = contentPage.Value<string>("contentPageTitle");
+                var contentPageDescription = contentPage.Value<string>("contentPageDescription");
+                var hasCategory = contentPage.Value<string[]>("contentPageCategory").Count();
+                if (hasCategory > 0)
                 {
-                    active = "";
+                    <div class="carousel-item @active">
+                        <img class="d-block mainCarouselImg" src="@imgs.FirstOrDefault().Url" alt="First slide">
+                        <div class="mainCarouselText carousel-caption d-none d-md-block">
+                            <h1>
+                                <strong>
+                                    @contentPageTitle
+                                </strong>
+                            </h1>
+                            <p>
+                                <strong>
+                                    @contentPageDescription
+                                </strong>
+                            </p>
+                        </div>
+                    </div>
+                    if (!string.IsNullOrEmpty(active))
+                    {
+                        active = "";
+                    }
                 }
             }
         </div>
