@@ -1,0 +1,37 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<ContentModels.ErrorPage>
+@using ContentModels = Umbraco.Web.PublishedModels;
+@{
+    Layout = "Main.cshtml";
+}
+
+@if (Model.HasValue("errorPageTitle") && Model.HasValue("errorPageText"))
+{
+    <div class="title-separator row">
+        <h1>@Model.Value("errorPageTitle") - @Model.Name</h1>
+    </div>
+    <div class="row">
+        <div class="col goooooo">
+            @Model.Value("errorPageText")
+        </div>
+    </div>
+    if (!ViewData.ModelState.IsValid)
+    {
+        <div class="title-separator row">
+            <h1>Informação Adicional</h1>
+        </div>
+        foreach (ModelState modelState in ViewData.ModelState.Values)
+        {
+            var errors = modelState.Errors;
+
+            if (errors.Any())
+            {
+                <ul>
+                    @foreach (var err in errors)
+                    {
+                        <li><em>@err.ErrorMessage</em></li>
+                    }
+                </ul>
+            }
+        }
+    }
+}

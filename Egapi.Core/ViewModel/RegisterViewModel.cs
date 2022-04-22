@@ -10,39 +10,36 @@ namespace Egapi.Core.ViewModel
 {
     public class RegisterViewModel
     {
-
         [Display(Name = "Nome")]
-        [Required(ErrorMessage = "Please enter your First Name")]
+        [Required(ErrorMessage = "Por favor insira o seu Nome")]
         [MinLength(3)]
         public string FirstName { get; set; }
-        
+
         [Display(Name = "Apelido")]
-        [Required(ErrorMessage = "Please enter your Last Name")]
+        [Required(ErrorMessage = "Por favor insira o seu Apelido")]
         [MinLength(3)]
         public string LastName { get; set; }
 
         [Display(Name = "Username")]
-        [Required(ErrorMessage = "Please enter your Username")]
+        [Required(ErrorMessage = "Por favor insira o seu Username")]
         [MinLength(3)]
         public string Username { get; set; }
 
         [Display(Name = "Email")]
-        [Required(ErrorMessage = "Please enter your Email")]
-        [EmailAddress(ErrorMessage = "Please enter a valid Email address")]
+        [Required(ErrorMessage = "Por favor insira o seu Email")]
+        [EmailAddress(ErrorMessage = "Por favor insira um Email válido")]
         public string Email { get; set; }
 
         [UIHint("Password")]
         [Display(Name = "Password")]
-        [Required(ErrorMessage = "Please enter your Password")]
+        [Required(ErrorMessage = "Por favor insira a sua Password")]
         [MinLength(10)]
         public string Password { get; set; }
 
-        [UIHint("Confirm Password")]
-        [Display(Name = "Confirm Password")]
-        [Required(ErrorMessage = "Please enter your confirm Password")]
-        [EqualTo("Password", ErrorMessage = "The passwords need to match")]
+        [UIHint("Confirmar Password")]
+        [Display(Name = "Confirmar Password")]
+        [Required(ErrorMessage = "Por favor confirma a sua Password")]
+        [EqualTo("Password", ErrorMessage = "As Passwords precisam de coincidir")]
         public string ConfirmPassword { get; set; }
-
-        public string RedirectUrl { get; set; }
     }
 }

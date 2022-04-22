@@ -16,9 +16,9 @@
             }
             else
             {
-                @Html.ValidationSummary()
-                using (Html.BeginUmbracoForm<RegisterController>("HandleRegister"))
+                using (Html.BeginUmbracoForm<UserController>("HandleRegister"))
                 {
+                    @Html.ValidationSummary()
                     @Html.AntiForgeryToken()
 
                     <div class="form-group">

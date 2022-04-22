@@ -1,0 +1,60 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<Egapi.Core.ViewModel.MyAccountViewModel>
+@using Egapi.Core.Controllers;
+@using Egapi.Core.ViewModel;
+@{
+    Html.EnableClientValidation();
+    Html.EnableUnobtrusiveJavaScript();
+
+    var user = Membership.GetUser();
+}
+
+<h1>A minha conta</h1>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            @if (!Umbraco.MemberIsLoggedOn())
+            {
+                Response.Redirect("/error-pages/not-authorized/");
+            }
+            else
+            {
+                using (Html.BeginUmbracoForm<UserController>("HandleUpdateMyAccount"))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary()
+                    <div class="form-group">
+                        @Html.LabelFor(u => u.FirstName)
+                        @Html.TextBoxFor(u => u.FirstName, new { @class = "form-control", @type = "text", @value = user })
+                        @Html.ValidationMessageFor(u => u.FirstName)
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(u => u.LastName)
+                        @Html.TextBoxFor(u => u.LastName, new { @class = "form-control", @type = "text" })
+                        @Html.ValidationMessageFor(u => u.LastName)
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(u => u.Email)
+                        @Html.TextBoxFor(u => u.Email, new { @class = "form-control", @type = "email" })
+                        @Html.ValidationMessageFor(u => u.Email)
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(u => u.Password)
+                        @Html.TextBoxFor(u => u.Password, new { @class = "form-control", @type = "password" })
+                        @Html.ValidationMessageFor(u => u.Password)
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(u => u.ConfirmPassword)
+                        @Html.TextBoxFor(u => u.ConfirmPassword, new { @class = "form-control", @type = "password" })
+                        @Html.ValidationMessageFor(u => u.ConfirmPassword)
+                    </div>
+                    <button type="submit" value="update" name="update-button" class="btn btn-primary">Update</button>
+                }
+            }
+        </div>
+    </div>
+</div>
+

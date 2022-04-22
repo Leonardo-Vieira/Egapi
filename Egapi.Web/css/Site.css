@@ -71,13 +71,13 @@ body {
     margin-bottom: 90px;
 }
 
-.mainCarouselText > h1, p {
+.mainCarouselText{
     max-width: 450px;
     margin: auto;
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
-.mainCarouselText > p {
+.mainCarouselTextParagraph{
     font-size: 20px;
 }
 /* Home */
