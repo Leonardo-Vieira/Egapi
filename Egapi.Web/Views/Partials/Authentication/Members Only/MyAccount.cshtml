@@ -18,10 +18,11 @@
             }
             else
             {
+                @Html.ValidationSummary()
+
                 using (Html.BeginUmbracoForm<UserController>("HandleUpdateMyAccount"))
                 {
                     @Html.AntiForgeryToken()
-                    @Html.ValidationSummary()
                     <div class="form-group">
                         @Html.LabelFor(u => u.FirstName)
                         @Html.TextBoxFor(u => u.FirstName, new { @class = "form-control", @type = "text", @value = user })
@@ -39,6 +40,16 @@
                         @Html.TextBoxFor(u => u.Email, new { @class = "form-control", @type = "email" })
                         @Html.ValidationMessageFor(u => u.Email)
                     </div>
+                    <button type="submit" value="update" name="update-button" class="btn btn-primary">Update</button>
+                }
+
+                using (Html.BeginUmbracoForm<UserController>("HandleUpdatePassword"))
+                {
+                    @Html.AntiForgeryToken()
+
+                    @Html.HiddenFor(m => m.FirstName);
+                    @Html.HiddenFor(m => m.LastName);
+                    @Html.HiddenFor(m => m.Email);
 
                     <div class="form-group">
                         @Html.LabelFor(u => u.Password)
@@ -51,7 +62,7 @@
                         @Html.TextBoxFor(u => u.ConfirmPassword, new { @class = "form-control", @type = "password" })
                         @Html.ValidationMessageFor(u => u.ConfirmPassword)
                     </div>
-                    <button type="submit" value="update" name="update-button" class="btn btn-primary">Update</button>
+                    <button type="submit" value="Change Password" name="password-button" class="btn btn-primary">Change Password</button>
                 }
             }
         </div>

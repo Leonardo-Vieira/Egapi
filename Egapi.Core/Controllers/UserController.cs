@@ -141,8 +141,8 @@ namespace Egapi.Core.Controllers
         }
 
 
+        [HttpPost]
         [ValidateAntiForgeryToken]
-        [HttpPut]
         public ActionResult HandleUpdateMyAccount(MyAccountViewModel vm)
         {
             if (!ModelState.IsValid)
@@ -175,11 +175,54 @@ namespace Egapi.Core.Controllers
                 password = vm.Password;
             }
 
-            member.Name = vm.FirstName + " " + vm.LastName;
+            member.Name = vm.FirstName.Trim() + " " + vm.LastName.Trim();
             member.Email = vm.Email;
 
             Services.MemberService.Save(member);
-            Services.MemberService.SavePassword(member, password);
+            if (!string.IsNullOrEmpty(vm.Password) || !string.IsNullOrEmpty(vm.ConfirmPassword))
+            {
+                Services.MemberService.SavePassword(member, password);
+            }
+
+            return RedirectToCurrentUmbracoPage();
+        }
+
+        public ActionResult HandleUpdatePassword(MyAccountViewModel vm)
+        {
+            if (!ModelState.IsValid)
+            {
+                return CurrentUmbracoPage();
+            }
+
+            //is the member logged in?
+            if (!Umbraco.MemberIsLoggedOn())
+            {
+                ModelState.AddModelError("My Account", "Você não tem a sessão iniciada!");
+                return CurrentUmbracoPage();
+            }
+
+            if (vm == null)
+            {
+                return CurrentUmbracoPage();
+            }
+
+            var member = Services.MemberService.GetByUsername(Membership.GetUser().UserName);
+            if (member == null)
+            {
+                ModelState.AddModelError("My Account", "Não o conseguimos encontrar no sistema");
+                return CurrentUmbracoPage();
+            }
+
+            try
+            {
+                Services.MemberService.SavePassword(member, vm.Password);
+            }
+            catch (Exception e)
+            {
+
+                ModelState.AddModelError("My Account", "Não deu para atualizar a password " + e.Message);
+                return CurrentUmbracoPage();
+            }
 
             return RedirectToCurrentUmbracoPage();
         }
