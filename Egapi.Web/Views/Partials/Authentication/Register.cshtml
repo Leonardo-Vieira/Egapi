@@ -16,47 +16,54 @@
             }
             else
             {
-                using (Html.BeginUmbracoForm<UserController>("HandleRegister"))
+                if (Umbraco.MemberIsLoggedOn())
                 {
-                    @Html.ValidationSummary()
-                    @Html.AntiForgeryToken()
+                    Response.Redirect("/");
+                }
+                else
+                {
+                    using (Html.BeginUmbracoForm<UserController>("HandleRegister"))
+                    {
+                        @Html.ValidationSummary()
+                        @Html.AntiForgeryToken()
 
-                    <div class="form-group">
-                        @Html.LabelFor(u => u.FirstName)
-                        @Html.TextBoxFor(u => u.FirstName, new { @class = "form-control", @type = "text" })
-                        @Html.ValidationMessageFor(u => u.FirstName)
-                    </div>
+                        <div class="form-group">
+                            @Html.LabelFor(u => u.FirstName)
+                            @Html.TextBoxFor(u => u.FirstName, new { @class = "form-control", @type = "text" })
+                            @Html.ValidationMessageFor(u => u.FirstName)
+                        </div>
 
-                    <div class="form-group">
-                        @Html.LabelFor(u => u.LastName)
-                        @Html.TextBoxFor(u => u.LastName, new { @class = "form-control", @type = "text" })
-                        @Html.ValidationMessageFor(u => u.LastName)
-                    </div>
+                        <div class="form-group">
+                            @Html.LabelFor(u => u.LastName)
+                            @Html.TextBoxFor(u => u.LastName, new { @class = "form-control", @type = "text" })
+                            @Html.ValidationMessageFor(u => u.LastName)
+                        </div>
 
-                    <div class="form-group">
-                        @Html.LabelFor(u => u.Username)
-                        @Html.TextBoxFor(u => u.Username, new { @class = "form-control", @type = "text" })
-                        @Html.ValidationMessageFor(u => u.Username)
-                    </div>
+                        <div class="form-group">
+                            @Html.LabelFor(u => u.Username)
+                            @Html.TextBoxFor(u => u.Username, new { @class = "form-control", @type = "text" })
+                            @Html.ValidationMessageFor(u => u.Username)
+                        </div>
 
-                    <div class="form-group">
-                        @Html.LabelFor(u => u.Email)
-                        @Html.TextBoxFor(u => u.Email, new { @class = "form-control", @type = "email" })
-                        @Html.ValidationMessageFor(u => u.Email)
-                    </div>
+                        <div class="form-group">
+                            @Html.LabelFor(u => u.Email)
+                            @Html.TextBoxFor(u => u.Email, new { @class = "form-control", @type = "email" })
+                            @Html.ValidationMessageFor(u => u.Email)
+                        </div>
 
-                    <div class="form-group">
-                        @Html.LabelFor(u => u.Password)
-                        @Html.TextBoxFor(u => u.Password, new { @class = "form-control", @type = "password" })
-                        @Html.ValidationMessageFor(u => u.Password)
-                    </div>
+                        <div class="form-group">
+                            @Html.LabelFor(u => u.Password)
+                            @Html.TextBoxFor(u => u.Password, new { @class = "form-control", @type = "password" })
+                            @Html.ValidationMessageFor(u => u.Password)
+                        </div>
 
-                    <div class="form-group">
-                        @Html.LabelFor(u => u.ConfirmPassword)
-                        @Html.TextBoxFor(u => u.ConfirmPassword, new { @class = "form-control", @type = "password" })
-                        @Html.ValidationMessageFor(u => u.ConfirmPassword)
-                    </div>
-                    <button type="submit" value="Register" name="register-button" class="btn btn-primary">Submit</button>
+                        <div class="form-group">
+                            @Html.LabelFor(u => u.ConfirmPassword)
+                            @Html.TextBoxFor(u => u.ConfirmPassword, new { @class = "form-control", @type = "password" })
+                            @Html.ValidationMessageFor(u => u.ConfirmPassword)
+                        </div>
+                        <button type="submit" value="Register" name="register-button" class="btn btn-primary">Submit</button>
+                    }
                 }
             }
         </div>
