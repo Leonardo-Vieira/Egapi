@@ -53,9 +53,36 @@ namespace Egapi.Core.Services
             SendMail(memberEmail, subject, htmlContent, textContent);
         }
 
+        public void SendEmailToAdminNotification(string name, string email, string message)
+        {
+            //gets the template name
+            var emailTemplate = GetEmailTemplate("Contact Us");
+
+            if (emailTemplate == null)
+            {
+                throw new Exception("Template not found");
+            }
+
+            //email merge the necessary fields
+            var subject = emailTemplate.Value<string>("emailTemplateSubjectLine");
+            var htmlContent = emailTemplate.Value<string>("emailTemplateHtmlContent");
+            var textContent = emailTemplate.Value<string>("emailTemplateTextContent");
+
+            //Mail Merge
+            //Mail merge the necessary fields
+            //Build the url to be the absolute url to the verify page
+
+            MailMerge("name", name, ref htmlContent, ref textContent);
+            MailMerge("email", email, ref htmlContent, ref textContent);
+            MailMerge("message", message, ref htmlContent, ref textContent);
+
+            //send email out to whoever 
+            SendMail(email, subject, htmlContent, textContent);
+        }
+
         private void MailMerge(string token, string url, ref string htmlContent, ref string textContent)
         {
-            htmlContent = htmlContent.Replace($"##{token}##", $"<a href='{url}'>Click</a>");
+            htmlContent = htmlContent.Replace($"##{token}##", url);
             textContent = textContent.Replace($"##{token}##", url);
         }
 

@@ -9,5 +9,6 @@ namespace Egapi.Core.Interfaces
     public interface IEmailService
     {
         void SendVerifyEmailAddressNotification(string memberEmail, string verificationToken);
+        void SendEmailToAdminNotification(string name, string email, string message);
     }
 }

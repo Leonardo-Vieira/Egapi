@@ -2944,6 +2944,7 @@
     <Content Include="Views\Verify.cshtml" />
     <Content Include="Views\MyAccount.cshtml" />
     <Content Include="Views\ErrorPage.cshtml" />
+    <Content Include="Views\Partials\AboutUs.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -26,8 +26,11 @@
         </div>
     </div>
 }
-@if (Model.HasValue("contentPageGrid"))
+@if (Model.Name() == "Sobre nós")
 {
-    @Model.Value("contentPageGrid")
+    @Html.Action("RenderContactUs", "ContactUs")
 }
-@Html.Partial("Cards/More About Us Card")
+else
+{
+    @Html.Partial("Cards/More About Us Card")
+}

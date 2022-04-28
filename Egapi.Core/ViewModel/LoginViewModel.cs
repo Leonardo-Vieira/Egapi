@@ -10,12 +10,12 @@ namespace Egapi.Core.ViewModel
     public class LoginViewModel
     {
         [Display(Name = "Username")]
-        [Required(ErrorMessage = "Please enter your Username")]
+        [Required(ErrorMessage = "Por favor insira o seu Username")]
         public string Username { get; set; }
 
         [UIHint("Password")]
         [Display(Name = "Password")]
-        [Required(ErrorMessage = "Please enter your Password")]
+        [Required(ErrorMessage = "Por favor insira a sua Password")]
         public string Password { get; set; }
 
         public string RedirectUrl { get; set; }

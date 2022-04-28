@@ -11,10 +11,7 @@
 *.sln.docstates
 
 # My Folders
-/Egapi.Web/App_Data/
-
-# My Files
-
+Egapi.Web/App_Data/
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
