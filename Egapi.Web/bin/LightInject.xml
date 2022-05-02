@@ -3056,6 +3056,11 @@
             Gets the parent <see cref="T:LightInject.Scope"/>.
             </summary>
         </member>
+        <member name="P:LightInject.Scope.ChildScope">
+            <summary>
+            Gets the child <see cref="T:LightInject.Scope"/>.
+            </summary>
+        </member>
         <member name="M:LightInject.Scope.TrackInstance(System.IDisposable)">
             <summary>
             Registers the <paramref name="disposable"/> so that it is disposed when the scope is completed.

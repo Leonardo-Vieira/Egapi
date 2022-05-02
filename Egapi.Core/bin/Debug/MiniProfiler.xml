@@ -145,14 +145,6 @@
             Contains helper methods that ease working with null <see cref="T:StackExchange.Profiling.MiniProfiler"/>s.
             </summary>
         </member>
-        <member name="M:StackExchange.Profiling.MiniProfilerWebExtensions.RenderIncludes(StackExchange.Profiling.MiniProfiler,StackExchange.Profiling.RenderOptions)">
-            <summary>
-            Returns the <c>css</c> and <c>javascript</c> includes needed to display the MiniProfiler results UI.
-            </summary>
-            <param name="profiler">The profiler this extension method is called on</param>
-            <param name="renderOptions">The option overrides (if any) to use rendering this MiniProfiler.</param>
-            <returns>Script and link elements normally; an empty string when there is no active profiling session.</returns>
-        </member>
         <member name="M:StackExchange.Profiling.MiniProfilerWebExtensions.RenderIncludes(StackExchange.Profiling.MiniProfiler,System.Nullable{StackExchange.Profiling.RenderPosition},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Int32},System.Nullable{System.Boolean},System.Nullable{System.Boolean})">
             <summary>
             Returns the <c>css</c> and <c>javascript</c> includes needed to display the MiniProfiler results UI.
@@ -174,7 +166,7 @@
         </member>
         <member name="T:StackExchange.Profiling.AspNetRequestProvider">
             <summary>
-            For ASP.NET NON-Core applications, the MiniProfiler v3 and below style, using <see cref="P:System.Web.HttpContext.Items"/> for storage.
+            For ASP.NET NON-Core applications, the MiniPofiler v3 and below style, using <see cref="P:System.Web.HttpContext.Items"/> for storage.
             This is a <see cref="T:System.Web.HttpContext"/>-based profiler provider.
             </summary>
         </member>
@@ -194,7 +186,7 @@
             Starts a new MiniProfiler and associates it with the current <see cref="P:System.Web.HttpContext.Current"/>.
             </summary>
             <param name="profilerName">The name for the started <see cref="T:StackExchange.Profiling.MiniProfiler"/>.</param>
-            <param name="options">The options to start the MiniProfiler with. Likely a more-specific type underneath.</param>
+            <param name="options">The options to start the MiniPofiler with. Likely a more-specific type underneath.</param>
         </member>
         <member name="M:StackExchange.Profiling.AspNetRequestProvider.Stopped(StackExchange.Profiling.MiniProfiler,System.Boolean)">
             <summary>

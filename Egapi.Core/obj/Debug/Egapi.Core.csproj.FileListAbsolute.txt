@@ -1,3 +1,5 @@
+C:\Users\nardo\source\gitRepos\Egapi project\Egapi.Core\obj\Debug\Egapi.Core.csproj.AssemblyReference.cache
+C:\Users\nardo\source\gitRepos\Egapi project\Egapi.Core\obj\Debug\Egapi.Core.csproj.CoreCompileInputs.cache
 C:\Users\nardo\source\gitRepos\Egapi project\Egapi.Core\bin\Debug\amd64\Microsoft.VC90.CRT\Microsoft.VC90.CRT.manifest
 C:\Users\nardo\source\gitRepos\Egapi project\Egapi.Core\bin\Debug\amd64\Microsoft.VC90.CRT\msvcr90.dll
 C:\Users\nardo\source\gitRepos\Egapi project\Egapi.Core\bin\Debug\amd64\sqlceca40.dll
@@ -123,6 +125,7 @@ C:\Users\nardo\source\gitRepos\Egapi project\Egapi.Core\bin\Debug\Microsoft.Owin
 C:\Users\nardo\source\gitRepos\Egapi project\Egapi.Core\bin\Debug\Microsoft.Owin.Security.OAuth.xml
 C:\Users\nardo\source\gitRepos\Egapi project\Egapi.Core\bin\Debug\MiniProfiler.xml
 C:\Users\nardo\source\gitRepos\Egapi project\Egapi.Core\bin\Debug\MiniProfiler.Shared.xml
+C:\Users\nardo\source\gitRepos\Egapi project\Egapi.Core\bin\Debug\Newtonsoft.Json.pdb
 C:\Users\nardo\source\gitRepos\Egapi project\Egapi.Core\bin\Debug\Newtonsoft.Json.xml
 C:\Users\nardo\source\gitRepos\Egapi project\Egapi.Core\bin\Debug\Semver.xml
 C:\Users\nardo\source\gitRepos\Egapi project\Egapi.Core\bin\Debug\Serilog.xml
@@ -164,10 +167,6 @@ C:\Users\nardo\source\gitRepos\Egapi project\Egapi.Core\bin\Debug\Umbraco.Models
 C:\Users\nardo\source\gitRepos\Egapi project\Egapi.Core\bin\Debug\Umbraco.Web.pdb
 C:\Users\nardo\source\gitRepos\Egapi project\Egapi.Core\bin\Debug\Umbraco.Web.xml
 C:\Users\nardo\source\gitRepos\Egapi project\Egapi.Core\bin\Debug\Umbraco.Web.UI.xml
-C:\Users\nardo\source\gitRepos\Egapi project\Egapi.Core\obj\Debug\Egapi.Core.csproj.AssemblyReference.cache
-C:\Users\nardo\source\gitRepos\Egapi project\Egapi.Core\obj\Debug\Egapi.Core.csproj.CoreCompileInputs.cache
 C:\Users\nardo\source\gitRepos\Egapi project\Egapi.Core\obj\Debug\Egapi.Core.csproj.CopyComplete
 C:\Users\nardo\source\gitRepos\Egapi project\Egapi.Core\obj\Debug\Egapi.Core.dll
 C:\Users\nardo\source\gitRepos\Egapi project\Egapi.Core\obj\Debug\Egapi.Core.pdb
-C:\Users\nardo\source\gitRepos\Egapi project\Egapi.Core\bin\Debug\ICSharpCode.SharpZipLib.pdb
-C:\Users\nardo\source\gitRepos\Egapi project\Egapi.Core\bin\Debug\ICSharpCode.SharpZipLib.xml

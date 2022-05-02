@@ -26,6 +26,11 @@
         </div>
     </div>
 }
+@if (@Model.HasValue("contentPageGrid"))
+{
+    @Html.GetGridHtml(Model, "contentPageGrid")
+}
+
 @if (Model.Name() == "Sobre nós")
 {
     @Html.Action("RenderContactUs", "ContactUs")

@@ -135,11 +135,9 @@ namespace Egapi.Core.Controllers
                 vm.Email = member.Email;
                 vm.BirthDate = member.GetValue<DateTime>("BirthDate");
 
-                return PartialView(PARTIAL_VIEW_FOLDER + "Members Only/MyAccount.cshtml", vm);
             }
-            return CurrentUmbracoPage();
+            return PartialView(PARTIAL_VIEW_FOLDER + "Members Only/MyAccount.cshtml", vm);
         }
-
 
         [HttpPost]
         [ValidateAntiForgeryToken]

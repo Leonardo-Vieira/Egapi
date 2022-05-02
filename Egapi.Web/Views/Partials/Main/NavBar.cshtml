@@ -1,6 +1,6 @@
 ﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage
 @{
-    var contentPages = Umbraco.Content(Guid.Parse("79f8284c-ebc9-416f-9571-951c93041d24"))
+    var contentPages = Umbraco.Content(Guid.Parse("1316857d-7526-44b4-a275-3602d4de0ae5"))
     .ChildrenOfType("contentPage")
     .Where(x => x.IsVisible());
 
@@ -104,13 +104,7 @@
 </nav>
 <script>
     $(document).ready(function () {
-        //mostra a text-box search
-        $("#search").click(function () {
-            $("#text-box-search").animate({
-                opacity: "toggle",
-                width: "toggle"
-            });
-        });
+        //shows text-box search
         $("#search").click(function () {
             $("#text-box-search").animate({
                 opacity: "toggle",

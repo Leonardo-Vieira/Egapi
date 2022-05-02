@@ -75,29 +75,6 @@
             <param name="request">The request to convert.</param>
             <returns>A <see cref="T:StackExchange.Profiling.ClientTimings"/> object.</returns>
         </member>
-        <member name="T:StackExchange.Profiling.ColorScheme">
-            <summary>
-            The color scheme to use when rendering MiniProfiler.
-            This is used both in the render popup and on the standalone pages.
-            Ultimately, used to set classes for CSS variables.
-            </summary>
-        </member>
-        <member name="F:StackExchange.Profiling.ColorScheme.Light">
-            <summary>
-            "Light" mode (the default), white background, etc.
-            </summary>
-        </member>
-        <member name="F:StackExchange.Profiling.ColorScheme.Dark">
-            <summary>
-            "Dark" mode, near-black background, etc.
-            </summary>
-        </member>
-        <member name="F:StackExchange.Profiling.ColorScheme.Auto">
-            <summary>
-            <para>"Auto" mode, respecting what the user prefers via <c>prefers-color-scheme</c> in CSS.</para>
-            <para>This is opt-in because it'd be really odd for only MiniProfiler to respect it as part of a larger page.</para>
-            </summary>
-        </member>
         <member name="T:StackExchange.Profiling.CustomTiming">
             <summary>
             A custom timing that usually represents a Remote Procedure Call, allowing better
@@ -298,12 +275,6 @@
             The profiled database command.
             </summary>
         </member>
-        <member name="P:StackExchange.Profiling.Data.ProfiledDbCommand.AlwaysWrapReaders">
-            <summary>
-            Whether to always wrap data readers, even if there isn't an active profiler on this connect.
-            This allows depending on overrides for things inheriting from <see cref="T:StackExchange.Profiling.Data.ProfiledDbDataReader"/> to actually execute.
-            </summary>
-        </member>
         <member name="P:StackExchange.Profiling.Data.ProfiledDbCommand.BindByName">
             <summary>
             Gets or sets a value indicating whether or not to bind by name.
@@ -365,11 +336,6 @@
         <member name="P:StackExchange.Profiling.Data.ProfiledDbCommand.UpdatedRowSource">
             <summary>
             Gets or sets the updated row source.
-            </summary>
-        </member>
-        <member name="M:StackExchange.Profiling.Data.ProfiledDbCommand.CreateDbDataReader(System.Data.Common.DbDataReader,System.Data.CommandBehavior,StackExchange.Profiling.Data.IDbProfiler)">
-            <summary>
-            Creates a wrapper data reader for <see cref="M:StackExchange.Profiling.Data.ProfiledDbCommand.ExecuteDbDataReader(System.Data.CommandBehavior)"/> and <see cref="M:StackExchange.Profiling.Data.ProfiledDbCommand.ExecuteDbDataReaderAsync(System.Data.CommandBehavior,System.Threading.CancellationToken)"/> />
             </summary>
         </member>
         <member name="M:StackExchange.Profiling.Data.ProfiledDbCommand.ExecuteDbDataReader(System.Data.CommandBehavior)">
@@ -533,12 +499,6 @@
             </summary>
             <param name="isolationLevel">Specifies the isolation level for the transaction.</param>
             <returns>An object representing the new transaction.</returns>
-        </member>
-        <member name="M:StackExchange.Profiling.Data.ProfiledDbConnection.CreateDbCommand(System.Data.Common.DbCommand,StackExchange.Profiling.Data.IDbProfiler)">
-            <summary>
-            Creates and returns a <see cref="T:System.Data.Common.DbCommand"/> object associated with the current connection.
-            </summary>
-            <returns>A <see cref="T:StackExchange.Profiling.Data.ProfiledDbCommand"/> wrapping the created <see cref="T:System.Data.Common.DbCommand"/>.</returns>
         </member>
         <member name="M:StackExchange.Profiling.Data.ProfiledDbConnection.CreateDbCommand">
             <summary>
@@ -704,21 +664,10 @@
         </member>
         <member name="M:StackExchange.Profiling.Data.ProfiledDbDataReader.#ctor(System.Data.Common.DbDataReader,StackExchange.Profiling.Data.IDbProfiler)">
             <summary>
-            Initializes a new instance of the <see cref="T:StackExchange.Profiling.Data.ProfiledDbDataReader"/> class (with <see cref="F:System.Data.CommandBehavior.Default"/>).
-            </summary>
-            <param name="reader">The reader.</param>
-            <param name="profiler">The profiler.</param>
-        </member>
-        <member name="M:StackExchange.Profiling.Data.ProfiledDbDataReader.#ctor(System.Data.Common.DbDataReader,System.Data.CommandBehavior,StackExchange.Profiling.Data.IDbProfiler)">
-            <summary>
             Initializes a new instance of the <see cref="T:StackExchange.Profiling.Data.ProfiledDbDataReader"/> class.
             </summary>
             <param name="reader">The reader.</param>
-            <param name="behavior">The behavior specified during command execution.</param>
             <param name="profiler">The profiler.</param>
-        </member>
-        <member name="P:StackExchange.Profiling.Data.ProfiledDbDataReader.Behavior">
-            <summary>Gets the behavior specified during command execution.</summary>
         </member>
         <member name="P:StackExchange.Profiling.Data.ProfiledDbDataReader.Depth">
             <summary>Gets a value indicating the depth of nesting for the current row.</summary>
@@ -913,10 +862,6 @@
         <member name="M:StackExchange.Profiling.Data.ProfiledDbDataReader.GetSchemaTable">
             <summary>Returns a <see cref="T:System.Data.DataTable"/> that describes the column metadata of the <see cref="T:System.Data.IDataReader"/>.</summary>
             <returns>A <see cref="T:System.Data.DataTable"/> that describes the column metadata.</returns>
-        </member>
-        <member name="M:StackExchange.Profiling.Data.ProfiledDbDataReader.Dispose(System.Boolean)">
-            <summary>Disposes the IDataReader Object.</summary>
-            <param name="disposing">Whether to clear any managed resources.</param>
         </member>
         <member name="T:StackExchange.Profiling.Data.ProfiledDbProviderFactory">
             <summary>
@@ -1493,6 +1438,44 @@
             </summary>
             <param name="disposing">Whether we're immediately disposing.</param>
         </member>
+        <member name="T:StackExchange.Profiling.Internal.ResultRequest">
+            <summary>
+            JSON format sent on the request to /results.
+            </summary>
+        </member>
+        <member name="P:StackExchange.Profiling.Internal.ResultRequest.Id">
+            <summary>
+            The ID of the MiniProfiler both being requested, and that these client results are for.
+            </summary>
+        </member>
+        <member name="P:StackExchange.Profiling.Internal.ResultRequest.Performance">
+            <summary>
+            The window.performace timings from the client.
+            </summary>
+        </member>
+        <member name="P:StackExchange.Profiling.Internal.ResultRequest.Probes">
+            <summary>
+            The JavaScript client probes, if any.
+            </summary>
+        </member>
+        <member name="P:StackExchange.Profiling.Internal.ResultRequest.RedirectCount">
+            <summary>
+            The amount of redirects made before the pageload.
+            </summary>
+        </member>
+        <member name="P:StackExchange.Profiling.Internal.ResultRequest.TimingCount">
+            <summary>
+            The total count of timings on this request.
+            </summary>
+        </member>
+        <member name="M:StackExchange.Profiling.Internal.ResultRequest.TryParse(System.IO.Stream,StackExchange.Profiling.Internal.ResultRequest@)">
+            <summary>
+            Returns a deserialize object from an input stream, like an HTTP request body.
+            </summary>
+            <param name="stream">The stream to deserialize.</param>
+            <param name="result">The resulting <see cref="T:StackExchange.Profiling.Internal.ResultRequest"/>, if successful.</param>
+            <returns>A <see cref="T:StackExchange.Profiling.Internal.ResultRequest"/> object.</returns>
+        </member>
         <member name="T:StackExchange.Profiling.Internal.ExtensionMethods">
             <summary>
             Common extension methods to use only in this project
@@ -1647,11 +1630,6 @@
             The hash to use for file cache breaking, this is automatically calculated.
             </summary>
         </member>
-        <member name="P:StackExchange.Profiling.Internal.MiniProfilerBaseOptions.EnableDebugMode">
-            <summary>
-            Whether to enable verbose diagnostics mode in MiniProfiler.
-            </summary>
-        </member>
         <member name="P:StackExchange.Profiling.Internal.MiniProfilerBaseOptions.ExcludedAssemblies">
             <summary>
             Assemblies to exclude from the stack trace report.
@@ -1687,7 +1665,7 @@
         <member name="P:StackExchange.Profiling.Internal.MiniProfilerBaseOptions.TrackConnectionOpenClose">
             <summary>
             Whether to track open and close for connections to things like database servers.
-            While this is useful for debugging connection pools and things, it can be noisy in other cases.
+            While this ise useful for debugging connection pools and things, it can be noisy in other cases.
             </summary>
         </member>
         <member name="P:StackExchange.Profiling.Internal.MiniProfilerBaseOptions.TrivialDurationThresholdMilliseconds">
@@ -1717,11 +1695,6 @@
             <summary>
             Dictates on which side of the page the profiler popup button is displayed; defaults to left.
             For a per-page override you can use .RenderIncludes(position: RenderPosition.Left/Right)
-            </summary>
-        </member>
-        <member name="P:StackExchange.Profiling.Internal.MiniProfilerBaseOptions.ColorScheme">
-            <summary>
-            Determines which color scheme to use when rendering (the class to apply for CSS styling).
             </summary>
         </member>
         <member name="P:StackExchange.Profiling.Internal.MiniProfilerBaseOptions.PopupToggleKeyboardShortcut">
@@ -1802,11 +1775,6 @@
             Called when passed to <see cref="M:StackExchange.Profiling.MiniProfiler.Configure``1(``0)"/>.
             </summary>
         </member>
-        <member name="P:StackExchange.Profiling.Internal.MiniProfilerBaseOptions.OnInternalError">
-            <summary>
-            An action to call when MiniProfiler has an internal error. For logging, etc.
-            </summary>
-        </member>
         <member name="T:StackExchange.Profiling.Internal.MiniProfilerBaseOptionsExtensions">
             <summary>
             Internal extension methods for <see cref="T:StackExchange.Profiling.Internal.MiniProfilerBaseOptions"/> and inheritors.
@@ -1835,16 +1803,6 @@
             Internal MiniProfiler extensions, not meant for consumption.
             This can and probably will break without warning. Don't use the .Internal namespace directly.
             </summary>
-        </member>
-        <member name="M:StackExchange.Profiling.Internal.Render.Includes(StackExchange.Profiling.MiniProfiler,System.String,System.Boolean,StackExchange.Profiling.RenderOptions,System.Collections.Generic.List{System.Guid})">
-            <summary>
-            Renders script tag for including MiniProfiler.
-            </summary>
-            <param name="profiler">The profiler to render a tag for.</param>
-            <param name="path">The root path that MiniProfiler is being served from.</param>
-            <param name="isAuthorized">Whether the current user is authorized for MiniProfiler.</param>
-            <param name="requestIDs">The request IDs to fetch for this render.</param>
-            <param name="renderOptions">The option overrides (if any) to use rendering this MiniProfiler.</param>
         </member>
         <member name="M:StackExchange.Profiling.Internal.Render.Includes(StackExchange.Profiling.MiniProfiler,System.String,System.Boolean,System.Collections.Generic.List{System.Guid},System.Nullable{StackExchange.Profiling.RenderPosition},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Int32},System.Nullable{System.Boolean},System.Nullable{System.Boolean})">
             <summary>
@@ -1876,44 +1834,6 @@
             <param name="options">The options to render for.</param>
             <param name="path">The root path that MiniProfiler is being served from.</param>
             <returns>A full HTML page for this MiniProfiler.</returns>
-        </member>
-        <member name="T:StackExchange.Profiling.Internal.ResultRequest">
-            <summary>
-            JSON format sent on the request to /results.
-            </summary>
-        </member>
-        <member name="P:StackExchange.Profiling.Internal.ResultRequest.Id">
-            <summary>
-            The ID of the MiniProfiler both being requested, and that these client results are for.
-            </summary>
-        </member>
-        <member name="P:StackExchange.Profiling.Internal.ResultRequest.Performance">
-            <summary>
-            The window.performace timings from the client.
-            </summary>
-        </member>
-        <member name="P:StackExchange.Profiling.Internal.ResultRequest.Probes">
-            <summary>
-            The JavaScript client probes, if any.
-            </summary>
-        </member>
-        <member name="P:StackExchange.Profiling.Internal.ResultRequest.RedirectCount">
-            <summary>
-            The amount of redirects made before the pageload.
-            </summary>
-        </member>
-        <member name="P:StackExchange.Profiling.Internal.ResultRequest.TimingCount">
-            <summary>
-            The total count of timings on this request.
-            </summary>
-        </member>
-        <member name="M:StackExchange.Profiling.Internal.ResultRequest.TryParse(System.IO.Stream,StackExchange.Profiling.Internal.ResultRequest@)">
-            <summary>
-            Returns a deserialize object from an input stream, like an HTTP request body.
-            </summary>
-            <param name="stream">The stream to deserialize.</param>
-            <param name="result">The resulting <see cref="T:StackExchange.Profiling.Internal.ResultRequest"/>, if successful.</param>
-            <returns>A <see cref="T:StackExchange.Profiling.Internal.ResultRequest"/> object.</returns>
         </member>
         <member name="T:StackExchange.Profiling.Internal.StopwatchWrapper">
             <summary>
@@ -2062,27 +1982,6 @@
             </summary>
             <param name="options">The options to use for this StackTrace fetch.</param>
             <returns>Space separated list of methods</returns>
-        </member>
-        <member name="T:StackExchange.Profiling.Helpers.StackTraceUtils">
-            <summary>
-            StackTrace utilities, from Exceptional
-            </summary>
-            <remarks>
-            ...need to make this a source package...
-            </remarks>
-        </member>
-        <member name="M:StackExchange.Profiling.Helpers.StackTraceUtils.HtmlPrettify(System.String,System.Nullable{System.Int32})">
-            <summary>
-            Converts a stack trace to formatted HTML with styling and linkifiation.
-            </summary>
-            <param name="stackTrace">The stack trace to HTMLify.</param>
-            <param name="commonStart">The frame index to start marking as common (e.g. to grey out beneath).</param>
-            <returns>An HTML-pretty version of the stack trace.</returns>
-        </member>
-        <member name="M:StackExchange.Profiling.Helpers.StackTraceUtils.NormalizeMethodName(System.String)">
-            <summary>
-            .NET Core changes methods so generics render as as Method[T], this normalizes it.
-            </summary>
         </member>
         <member name="T:StackExchange.Profiling.MiniProfiler">
             <summary>
@@ -2519,7 +2418,7 @@
             Allows explicit naming of the new profiling session; when null, an appropriate default will be used, e.g. for
             a web request, the URL will be used for the overall session name.
             </param>
-            <param name="options">The options to start the MiniProfiler with. Likely a more-specific type underneath.</param>
+            <param name="options">The options to start the MiniPofiler with. Likely a more-specific type underneath.</param>
         </member>
         <member name="M:StackExchange.Profiling.DefaultProfilerProvider.Stopped(StackExchange.Profiling.MiniProfiler,System.Boolean)">
             <summary>
@@ -2579,7 +2478,7 @@
             Allows explicit naming of the new profiling session; when null, an appropriate default will be used, e.g. for
             a web request, the URL will be used for the overall session name.
             </param>
-            <param name="options">The options to start the MiniProfiler with. Likely a more-specific type underneath.</param>
+            <param name="options">The options to start the MiniPofiler with. Likely a more-specific type underneath.</param>
         </member>
         <member name="M:StackExchange.Profiling.IAsyncProfilerProvider.Stopped(StackExchange.Profiling.MiniProfiler,System.Boolean)">
             <summary>
@@ -2638,71 +2537,6 @@
             When true, clears the <see cref="P:StackExchange.Profiling.MiniProfiler.Current"/>, allowing profiling to 
             be prematurely stopped and discarded. Useful for when a specific route does not need to be profiled.
             </param>
-        </member>
-        <member name="T:StackExchange.Profiling.RenderOptions">
-            <summary>
-            Options for rendering a specific MiniProfiler instance.
-            </summary>
-        </member>
-        <member name="P:StackExchange.Profiling.RenderOptions.Position">
-            <summary>
-            The UI position to render the profiler in.
-            Defaults to <see cref="P:StackExchange.Profiling.Internal.MiniProfilerBaseOptions.PopupRenderPosition"/>.
-            </summary>
-        </member>
-        <member name="P:StackExchange.Profiling.RenderOptions.ShowTrivial">
-            <summary>
-            Whether to show trivial timings column initially or not.
-            Defaults to <see cref="P:StackExchange.Profiling.Internal.MiniProfilerBaseOptions.PopupShowTrivial"/>.
-            </summary>
-        </member>
-        <member name="P:StackExchange.Profiling.RenderOptions.ShowTimeWithChildren">
-            <summary>
-            Whether to show time with children column initially or not.
-            Defaults to <see cref="P:StackExchange.Profiling.Internal.MiniProfilerBaseOptions.PopupShowTimeWithChildren"/>.
-            </summary>
-        </member>
-        <member name="P:StackExchange.Profiling.RenderOptions.MaxTracesToShow">
-            <summary>
-            The maximum number of profilers to show (before the oldest is removed).
-            Defaults to <see cref="P:StackExchange.Profiling.Internal.MiniProfilerBaseOptions.PopupMaxTracesToShow"/>.
-            </summary>
-        </member>
-        <member name="P:StackExchange.Profiling.RenderOptions.ShowControls">
-            <summary>
-            Whether to show the controls.
-            Defaults to <see cref="P:StackExchange.Profiling.Internal.MiniProfilerBaseOptions.ShowControls"/>.
-            </summary>
-        </member>
-        <member name="P:StackExchange.Profiling.RenderOptions.StartHidden">
-            <summary>
-            Whether to start hidden.
-            Defaults to <see cref="P:StackExchange.Profiling.Internal.MiniProfilerBaseOptions.PopupStartHidden"/>.
-            </summary>
-        </member>
-        <member name="P:StackExchange.Profiling.RenderOptions.PopupToggleKeyboardShortcut">
-            <summary>
-            The keyboard key combination to use toggle profiler visibility.
-            Defaults to <see cref="P:StackExchange.Profiling.Internal.MiniProfilerBaseOptions.PopupToggleKeyboardShortcut"/>.
-            </summary>
-        </member>
-        <member name="P:StackExchange.Profiling.RenderOptions.TrivialDurationThresholdMilliseconds">
-            <summary>
-            The amount of ms before a timing is considered non-trivial.
-            Defaults to <see cref="P:StackExchange.Profiling.Internal.MiniProfilerBaseOptions.TrivialDurationThresholdMilliseconds"/>.
-            </summary>
-        </member>
-        <member name="P:StackExchange.Profiling.RenderOptions.ColorScheme">
-            <summary>
-            The colorscheme to use when rendering this MiniProfiler.
-            Defaults to <see cref="P:StackExchange.Profiling.Internal.MiniProfilerBaseOptions.ColorScheme"/>.
-            </summary>
-        </member>
-        <member name="P:StackExchange.Profiling.RenderOptions.Nonce">
-            <summary>
-            A one-time-use nonce to render in the script tag.
-            </summary>
-            <remarks>https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script</remarks>
         </member>
         <member name="T:StackExchange.Profiling.RenderPosition">
             <summary>
@@ -2809,11 +2643,6 @@
         <member name="T:StackExchange.Profiling.SqlFormatters.SqlServerFormatter">
             <summary>
             Formats SQL server queries with a DECLARE up top for parameter values
-            </summary>
-        </member>
-        <member name="P:StackExchange.Profiling.SqlFormatters.SqlServerFormatter.IncludeParameterValues">
-            <summary>
-            Whether to include parameter declarations in the formatted output.
             </summary>
         </member>
         <member name="F:StackExchange.Profiling.SqlFormatters.SqlServerFormatter.ParamTranslator">
@@ -3561,17 +3390,6 @@
             <param name="minSaveMs">(Optional) The minimum threshold (in milliseconds) for saving this timing.</param>
             <param name="includeChildrenWithMinSave">(Optional) Whether the children are included when comparing to the <paramref name="minSaveMs"/> threshold.</param>
         </member>
-        <member name="M:StackExchange.Profiling.Timing.#ctor(StackExchange.Profiling.MiniProfiler,StackExchange.Profiling.Timing,System.String,System.Nullable{System.Decimal},System.Nullable{System.Boolean},System.Int32)">
-            <summary>
-            Creates a new Timing named 'name' in the 'profiler's session, with 'parent' as this Timing's immediate ancestor.
-            </summary>
-            <param name="profiler">The <see cref="T:StackExchange.Profiling.MiniProfiler"/> this <see cref="T:StackExchange.Profiling.Timing"/> belongs to.</param>
-            <param name="parent">The <see cref="T:StackExchange.Profiling.Timing"/> this <see cref="T:StackExchange.Profiling.Timing"/> is a child of.</param>
-            <param name="name">The name of this timing.</param>
-            <param name="minSaveMs">(Optional) The minimum threshold (in milliseconds) for saving this timing.</param>
-            <param name="includeChildrenWithMinSave">(Optional) Whether the children are included when comparing to the <paramref name="minSaveMs"/> threshold.</param>
-            <param name="debugStackShave">The number of frames to shave off the debug stack.</param>
-        </member>
         <member name="P:StackExchange.Profiling.Timing.Id">
             <summary>
             Gets or sets Unique identifier for this timing; set during construction.
@@ -3600,11 +3418,6 @@
         <member name="P:StackExchange.Profiling.Timing.CustomTimings">
             <summary>
             <see cref="T:StackExchange.Profiling.CustomTiming"/> lists keyed by their type, e.g. "sql", "memcache", "redis", "http".
-            </summary>
-        </member>
-        <member name="P:StackExchange.Profiling.Timing.DebugInfo">
-            <summary>
-            Present only when <c>EnableDebugMode</c> is <c>true</c>, additional step info in-memory only.
             </summary>
         </member>
         <member name="P:StackExchange.Profiling.Timing.CustomTimingsJson">
@@ -3713,25 +3526,6 @@
             Returns the <see cref="T:StackExchange.Profiling.CustomTiming"/> list keyed to the <paramref name="category"/>, creating any collections when null.
             </summary>
             <param name="category">The kind of custom timings, e.g. "sql", "redis", "memcache"</param>
-        </member>
-        <member name="T:StackExchange.Profiling.TimingDebugInfo">
-            <summary>
-            Debug info for a timing, only present when EnableDebugMode is set in options
-            </summary>
-        </member>
-        <member name="P:StackExchange.Profiling.TimingDebugInfo.RichHtmlStack">
-            <summary>
-            An (already-encoded) HTML representation of the call stack.
-            </summary>
-            <remarks>
-            Repetitive, but pays the prettification cost on fetch.
-            We'll want to do diff with the parent timing here in highlight or something.
-            </remarks>
-        </member>
-        <member name="P:StackExchange.Profiling.TimingDebugInfo.CommonStackStart">
-            <summary>
-            The index of the stack frame that common frames with parent start at (e.g. happened in the parent timing, before this).
-            </summary>
         </member>
         <member name="T:Microsoft.Extensions.DependencyInjection.IMiniProfilerBuilder">
             <summary>

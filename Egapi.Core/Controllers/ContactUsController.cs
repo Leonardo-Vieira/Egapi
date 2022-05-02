@@ -40,7 +40,7 @@ namespace Egapi.Core.Controllers
 
             if (!string.IsNullOrEmpty(vm.Name) && !string.IsNullOrEmpty(vm.Email) && !string.IsNullOrEmpty(vm.Message))
             {
-                //_emailService.SendEmailToAdminNotification(vm.Name, vm.Email, vm.Message);
+                _emailService.SendEmailToAdminNotification(vm.Name, vm.Email, vm.Message);
             }
             else
             {

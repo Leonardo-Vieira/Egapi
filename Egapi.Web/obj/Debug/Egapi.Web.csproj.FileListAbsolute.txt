@@ -69,7 +69,6 @@ C:\Users\nardo\source\gitRepos\Egapi project\Egapi.Web\bin\roslyn\VBCSCompiler.e
 C:\Users\nardo\source\gitRepos\Egapi project\Egapi.Web\bin\ClientDependency.Core.dll
 C:\Users\nardo\source\gitRepos\Egapi project\Egapi.Web\bin\ClientDependency.Core.Mvc.dll
 C:\Users\nardo\source\gitRepos\Egapi project\Egapi.Web\bin\CSharpTest.Net.Collections.dll
-C:\Users\nardo\source\gitRepos\Egapi project\Egapi.Web\bin\Egapi.Core.dll
 C:\Users\nardo\source\gitRepos\Egapi project\Egapi.Web\bin\Examine.dll
 C:\Users\nardo\source\gitRepos\Egapi project\Egapi.Web\bin\HtmlAgilityPack.dll
 C:\Users\nardo\source\gitRepos\Egapi project\Egapi.Web\bin\ICSharpCode.SharpZipLib.dll
@@ -141,9 +140,6 @@ C:\Users\nardo\source\gitRepos\Egapi project\Egapi.Web\bin\Umbraco.Examine.dll
 C:\Users\nardo\source\gitRepos\Egapi project\Egapi.Web\bin\Umbraco.ModelsBuilder.Embedded.dll
 C:\Users\nardo\source\gitRepos\Egapi project\Egapi.Web\bin\Umbraco.Web.dll
 C:\Users\nardo\source\gitRepos\Egapi project\Egapi.Web\bin\Umbraco.Web.UI.dll
-C:\Users\nardo\source\gitRepos\Egapi project\Egapi.Web\bin\DataAnnotationsExtensions.dll
-C:\Users\nardo\source\gitRepos\Egapi project\Egapi.Web\bin\Egapi.Core.pdb
-C:\Users\nardo\source\gitRepos\Egapi project\Egapi.Web\bin\Egapi.Core.dll.config
 C:\Users\nardo\source\gitRepos\Egapi project\Egapi.Web\bin\ClientDependency.Core.pdb
 C:\Users\nardo\source\gitRepos\Egapi project\Egapi.Web\bin\ClientDependency.Core.Mvc.pdb
 C:\Users\nardo\source\gitRepos\Egapi project\Egapi.Web\bin\CSharpTest.Net.Collections.xml
@@ -172,6 +168,7 @@ C:\Users\nardo\source\gitRepos\Egapi project\Egapi.Web\bin\Microsoft.AspNet.Sign
 C:\Users\nardo\source\gitRepos\Egapi project\Egapi.Web\bin\Microsoft.AspNet.SignalR.Core.xml
 C:\Users\nardo\source\gitRepos\Egapi project\Egapi.Web\bin\Microsoft.Bcl.AsyncInterfaces.xml
 C:\Users\nardo\source\gitRepos\Egapi project\Egapi.Web\bin\Microsoft.Extensions.DependencyInjection.Abstractions.xml
+C:\Users\nardo\source\gitRepos\Egapi project\Egapi.Web\bin\Microsoft.IO.RecyclableMemoryStream.pdb
 C:\Users\nardo\source\gitRepos\Egapi project\Egapi.Web\bin\Microsoft.Owin.xml
 C:\Users\nardo\source\gitRepos\Egapi project\Egapi.Web\bin\Microsoft.Owin.Host.SystemWeb.xml
 C:\Users\nardo\source\gitRepos\Egapi project\Egapi.Web\bin\Microsoft.Owin.Security.xml
@@ -179,6 +176,7 @@ C:\Users\nardo\source\gitRepos\Egapi project\Egapi.Web\bin\Microsoft.Owin.Securi
 C:\Users\nardo\source\gitRepos\Egapi project\Egapi.Web\bin\Microsoft.Owin.Security.OAuth.xml
 C:\Users\nardo\source\gitRepos\Egapi project\Egapi.Web\bin\MiniProfiler.xml
 C:\Users\nardo\source\gitRepos\Egapi project\Egapi.Web\bin\MiniProfiler.Shared.xml
+C:\Users\nardo\source\gitRepos\Egapi project\Egapi.Web\bin\Newtonsoft.Json.pdb
 C:\Users\nardo\source\gitRepos\Egapi project\Egapi.Web\bin\Newtonsoft.Json.xml
 C:\Users\nardo\source\gitRepos\Egapi project\Egapi.Web\bin\Semver.xml
 C:\Users\nardo\source\gitRepos\Egapi project\Egapi.Web\bin\Serilog.xml
@@ -226,6 +224,7 @@ C:\Users\nardo\source\gitRepos\Egapi project\Egapi.Web\obj\Debug\Egapi.Web.cspro
 C:\Users\nardo\source\gitRepos\Egapi project\Egapi.Web\obj\Debug\Egapi.Web.csproj.CopyComplete
 C:\Users\nardo\source\gitRepos\Egapi project\Egapi.Web\obj\Debug\Egapi.Web.dll
 C:\Users\nardo\source\gitRepos\Egapi project\Egapi.Web\obj\Debug\Egapi.Web.pdb
-C:\Users\nardo\source\gitRepos\Egapi project\Egapi.Web\bin\ICSharpCode.SharpZipLib.pdb
-C:\Users\nardo\source\gitRepos\Egapi project\Egapi.Web\bin\ICSharpCode.SharpZipLib.xml
-C:\Users\nardo\source\gitRepos\Egapi project\Egapi.Web\bin\Microsoft.IO.RecyclableMemoryStream.xml
+C:\Users\nardo\source\gitRepos\Egapi project\Egapi.Web\bin\Egapi.Core.dll
+C:\Users\nardo\source\gitRepos\Egapi project\Egapi.Web\bin\DataAnnotationsExtensions.dll
+C:\Users\nardo\source\gitRepos\Egapi project\Egapi.Web\bin\Egapi.Core.pdb
+C:\Users\nardo\source\gitRepos\Egapi project\Egapi.Web\bin\Egapi.Core.dll.config

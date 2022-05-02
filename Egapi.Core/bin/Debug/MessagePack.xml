@@ -76,12 +76,6 @@
             <param name="options">The serialization settings to use, including the resolver to use to obtain formatters for types that make up the composite type <typeparamref name="T"/>.</param>
             <returns>The deserialized value.</returns>
         </member>
-        <member name="T:MessagePack.Formatters.ByteArrayFormatter">
-            <summary>
-            Serializes a <see cref="T:System.Byte"/> array as a bin type.
-            Deserializes a bin type or an array of byte-sized integers into a <see cref="T:System.Byte"/> array.
-            </summary>
-        </member>
         <member name="T:MessagePack.Formatters.TypeFormatter`1">
             <summary>
             Serializes any instance of <see cref="T:System.Type"/> by its <see cref="P:System.Type.AssemblyQualifiedName"/> value.
@@ -235,46 +229,19 @@
             </summary>
             <typeparam name="TValue">The type of value stored in the dictionary.</typeparam>
         </member>
+        <member name="M:MessagePack.Internal.DynamicObjectTypeBuilder.IsOptimizeTargetType(System.Type)">
+            <devremarks>
+            Keep this list in sync with ShouldUseFormatterResolverHelper.PrimitiveTypes.
+            </devremarks>
+        </member>
         <member name="M:MessagePack.Internal.DynamicObjectTypeBuilder.Matches(System.Reflection.MethodInfo,System.Int32,System.Type)">
             <summary>
             Helps match parameters when searching a method when the parameter is a generic type.
             </summary>
         </member>
-        <member name="M:MessagePack.Internal.ObjectSerializationInfo.IsOptimizeTargetType(System.Type)">
-            <devremarks>
-            Keep this list in sync with ShouldUseFormatterResolverHelper.PrimitiveTypes.
-            </devremarks>
-        </member>
-        <member name="P:MessagePack.Internal.ObjectSerializationInfo.EmittableMember.IsInitOnly">
-            <summary>
-            Gets a value indicating whether the property can only be set by an object initializer, a constructor, or another `init` member.
-            </summary>
-        </member>
         <member name="P:MessagePack.Internal.ObjectSerializationInfo.EmittableMember.IsExplicitContract">
             <summary>
             Gets or sets a value indicating whether this member is explicitly opted in with an attribute.
-            </summary>
-        </member>
-        <member name="P:MessagePack.Internal.ObjectSerializationInfo.EmittableMember.IsActuallyWritable">
-            <summary>
-            Gets a value indicating whether a dynamic resolver can write to this property,
-            going beyond <see cref="P:MessagePack.Internal.ObjectSerializationInfo.EmittableMember.IsWritable"/> by also considering CLR bugs.
-            </summary>
-        </member>
-        <member name="P:MessagePack.Internal.ObjectSerializationInfo.EmittableMember.IsProblematicInitProperty">
-            <summary>
-            Gets a value indicating whether this member is a property with an <see langword="init" /> property setter
-            and is declared on a generic class.
-            </summary>
-            <remarks>
-            <see href="https://github.com/neuecc/MessagePack-CSharp/issues/1134">A bug</see> in <see cref="T:System.Reflection.Emit.MethodBuilder"/>
-            blocks its ability to invoke property init accessors when in a generic class.
-            </remarks>
-        </member>
-        <member name="T:MessagePack.Internal.InitAccessorInGenericClassNotSupportedException">
-            <summary>
-            Identifies the unsupported scenario of <see href="https://github.com/neuecc/MessagePack-CSharp/issues/1134">an
-            <see langword="init"/> property accessor within a generic class</see>.
             </summary>
         </member>
         <member name="T:MessagePack.MessagePackReader">
@@ -1070,18 +1037,6 @@
             before calling the next one.
             </remarks>
         </member>
-        <member name="M:MessagePack.MessagePackStreamReader.ReadArrayHeaderAsync(System.Threading.CancellationToken)">
-            <summary>
-            Reads the next messagepack array header.
-            </summary>
-            <param name="cancellationToken">A cancellation token.</param>
-            <returns>
-            A task whose result is the length of the next array from the stream.
-            </returns>
-            <remarks>
-            Any extra bytes read (between the last complete message and the end of the stream) will be available via the <see cref="P:MessagePack.MessagePackStreamReader.RemainingBytes"/> property.
-            </remarks>
-        </member>
         <member name="M:MessagePack.MessagePackStreamReader.ReadArrayAsync(System.Threading.CancellationToken)">
             <summary>
             Reads the next messagepack array and produces each element individually.
@@ -1105,26 +1060,6 @@
             <returns><c>true</c> if the array header was found and complete; <c>false</c> if there were insufficient bytes to read the header.</returns>
             <exception cref="T:MessagePack.MessagePackSerializationException">Thrown if the next msgpack structure is not an array header.</exception>
         </member>
-        <member name="M:MessagePack.MessagePackStreamReader.ReadMapHeaderAsync(System.Threading.CancellationToken)">
-            <summary>
-            Reads the next messagepack map header.
-            </summary>
-            <param name="cancellationToken">A cancellation token.</param>
-            <returns>
-            A task whose result is the size of the next map from the stream.
-            </returns>
-            <remarks>
-            Any extra bytes read (between the last complete message and the end of the stream) will be available via the <see cref="P:MessagePack.MessagePackStreamReader.RemainingBytes"/> property.
-            </remarks>
-        </member>
-        <member name="M:MessagePack.MessagePackStreamReader.TryReadMapHeader(System.Int32@)">
-            <summary>
-            Reads a map header from <see cref="P:MessagePack.MessagePackStreamReader.ReadData"/> if there are enough bytes to do so.
-            </summary>
-            <param name="count">Receives the size of the map, if its header could be read.</param>
-            <returns><c>true</c> if the map header was found and complete; <c>false</c> if there were insufficient bytes to read the header.</returns>
-            <exception cref="T:MessagePack.MessagePackSerializationException">Thrown if the next msgpack structure is not a map header.</exception>
-        </member>
         <member name="M:MessagePack.MessagePackStreamReader.#ctor(System.IO.Stream)">
             <summary>
             Initializes a new instance of the <see cref="T:MessagePack.MessagePackStreamReader"/> class.
@@ -1137,14 +1072,6 @@
             </summary>
             <param name="stream">The stream to read from.</param>
             <param name="leaveOpen">If true, leaves the stream open after this <see cref="T:MessagePack.MessagePackStreamReader"/> is disposed; otherwise, false.</param>
-        </member>
-        <member name="M:MessagePack.MessagePackStreamReader.#ctor(System.IO.Stream,System.Boolean,MessagePack.SequencePool)">
-            <summary>
-            Initializes a new instance of the <see cref="T:MessagePack.MessagePackStreamReader"/> class.
-            </summary>
-            <param name="stream">The stream to read from.</param>
-            <param name="leaveOpen">If true, leaves the stream open after this <see cref="T:MessagePack.MessagePackStreamReader"/> is disposed; otherwise, false.</param>
-            <param name="sequencePool">The pool to rent a <see cref="T:Nerdbank.Streams.Sequence`1"/> object from.</param>
         </member>
         <member name="P:MessagePack.MessagePackStreamReader.RemainingBytes">
             <summary>
@@ -1183,12 +1110,6 @@
         </member>
         <member name="M:MessagePack.MessagePackStreamReader.Dispose">
             <inheritdoc/>
-        </member>
-        <member name="M:MessagePack.MessagePackStreamReader.Dispose(System.Boolean)">
-            <summary>
-            Disposes of managed and unmanaged resources.
-            </summary>
-            <param name="disposing"><see langword="true"/> if this instance is being disposed; <see langword="false"/> if it is being finalized.</param>
         </member>
         <member name="M:MessagePack.MessagePackStreamReader.RecycleLastMessage">
             <summary>
@@ -1416,7 +1337,7 @@
             Uses msgpack type code ext99 and is compatible with v1 of this library.
             </remarks>
             <devremarks>
-            See also ThisLibraryExtensionTypeCodes.Lz4Block.
+            See also ThisLibraryExtensionTypeCodes.Lz4Block
             </devremarks>
         </member>
         <member name="F:MessagePack.MessagePackCompression.Lz4BlockArray">
@@ -1429,7 +1350,7 @@
             Uses msgpack type code ext98 in array.
             </remarks>
             <devremarks>
-            See also ThisLibraryExtensionTypeCodes.Lz4BlockArray.
+            See also ThisLibraryExtensionTypeCodes.Lz4BlockArray
             </devremarks>
         </member>
         <member name="T:MessagePack.MessagePackCompressionExtensions">
@@ -1673,12 +1594,6 @@
             The default value is to use <see cref="F:MessagePack.MessagePackSecurity.TrustedData"/>.
             </value>
         </member>
-        <member name="P:MessagePack.MessagePackSerializerOptions.SequencePool">
-            <summary>
-            Gets a thread-safe pool of reusable <see cref="T:Nerdbank.Streams.Sequence`1"/> objects.
-            </summary>
-            <value>The default value is the <see cref="F:MessagePack.SequencePool.Shared"/> instance.</value>
-        </member>
         <member name="M:MessagePack.MessagePackSerializerOptions.LoadType(System.String)">
             <summary>
             Gets a type given a string representation of the type.
@@ -1740,13 +1655,6 @@
             </summary>
             <param name="security">The new value for the <see cref="P:MessagePack.MessagePackSerializerOptions.Security"/> property.</param>
             <returns>The new instance; or the original if the value is unchanged.</returns>
-        </member>
-        <member name="M:MessagePack.MessagePackSerializerOptions.WithPool(MessagePack.SequencePool)">
-            <summary>
-            Gets a copy of these options with the <see cref="P:MessagePack.MessagePackSerializerOptions.SequencePool"/> property set to a new value.
-            </summary>
-            <param name="pool">The new value for the <see cref="P:MessagePack.MessagePackSerializerOptions.SequencePool"/> property.</param>
-            <returns>The new instance.</returns>
         </member>
         <member name="M:MessagePack.MessagePackSerializerOptions.Clone">
             <summary>
@@ -2573,6 +2481,10 @@
             <summary>
             A thread-safe pool of reusable <see cref="T:Nerdbank.Streams.Sequence`1"/> objects.
             </summary>
+            <remarks>
+            We use a <see cref="F:MessagePack.SequencePool.maxSize"/> that allows every processor to be involved in messagepack serialization concurrently,
+            plus one nested serialization per processor (since LZ4 and sometimes other nested serializations may exist).
+            </remarks>
         </member>
         <member name="F:MessagePack.SequencePool.MinimumSpanLength">
             <summary>
@@ -2591,31 +2503,15 @@
             <summary>
             The array pool which we share with all <see cref="T:Nerdbank.Streams.Sequence`1"/> objects created by this <see cref="T:MessagePack.SequencePool"/> instance.
             </summary>
-        </member>
-        <member name="M:MessagePack.SequencePool.#ctor">
-            <summary>
-            Initializes a new instance of the <see cref="T:MessagePack.SequencePool"/> class.
-            </summary>
-            <remarks>
-            We use a <see cref="F:MessagePack.SequencePool.maxSize"/> that allows every processor to be involved in messagepack serialization concurrently,
-            plus one nested serialization per processor (since LZ4 and sometimes other nested serializations may exist).
-            </remarks>
+            <devremarks>
+            We allow 100 arrays to be shared (instead of the default 50) and reduce the max array length from the default 1MB to something more reasonable for our expected use.
+            </devremarks>
         </member>
         <member name="M:MessagePack.SequencePool.#ctor(System.Int32)">
             <summary>
             Initializes a new instance of the <see cref="T:MessagePack.SequencePool"/> class.
             </summary>
             <param name="maxSize">The maximum size to allow the pool to grow.</param>
-            <devremarks>
-            We allow 100 arrays to be shared (instead of the default 50) and reduce the max array length from the default 1MB to something more reasonable for our expected use.
-            </devremarks>
-        </member>
-        <member name="M:MessagePack.SequencePool.#ctor(System.Int32,System.Buffers.ArrayPool{System.Byte})">
-            <summary>
-            Initializes a new instance of the <see cref="T:MessagePack.SequencePool"/> class.
-            </summary>
-            <param name="maxSize">The maximum size to allow the pool to grow.</param>
-            <param name="arrayPool">Array pool that will be used.</param>
         </member>
         <member name="M:MessagePack.SequencePool.Rent">
             <summary>
