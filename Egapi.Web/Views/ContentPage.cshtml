@@ -28,6 +28,63 @@
 }
 @if (@Model.HasValue("contentPageGrid"))
 {
+    <script>
+        $(document).ready(function () {
+            //shows text-box search
+            var children = $(".clearfix").children().children().children();
+
+            for (var i = 0; i < children.length; i++) {
+                if (!children.eq(i).hasClass("gridDiv") && children.eq(i).prop("tagName") != "H1") {
+                    children.eq(i).css("display", "none");
+                }
+            }
+
+            $(".gridButton").click(function () {
+
+                //console.log($(".gridButton").parent().parent().children());
+
+                //console.log($(".gridButton").parent().siblings().not(".gridDiv"));
+                console.log($(this).parent().nextAll());
+                console.log($(this).parent().nextAll().not(".gridDiv, .gridDiv ~ p").animate({
+                    opacity: "toggle",
+                    display: "block",
+                    width: "toggle"
+                }));
+
+                //$(this).parent().nextAll()[value] - object
+
+                //for (var i = 0; i < $(this).parent().nextAll().length; i++) {
+                //    if ($(this).parent().nextAll()[i].getAttribute("class") == null) {
+                //        $(this).parent().nextAll().animate({
+                //            opacity: "toggle",
+                //            display: "block",
+                //            width: "toggle"
+                //        });
+                //    }
+                //    else if (!$(this).parent().nextAll()[i].getAttribute("class").endsWith("gridDiv")) {
+                //        $(this).parent().nextAll().animate({
+                //            opacity: "toggle",
+                //            display: "block",
+                //            width: "toggle"
+                //        });
+                //    }
+                //    else {
+                //        break;
+                //    }
+                //}
+
+                //for (var i = 0; i < children.length; i++) {
+                //    if (!children.eq(i).hasClass("gridDiv") && children.eq(i).prop("tagName") != "H1") {
+                //        children.eq(i).animate({
+                //            opacity: "toggle",
+                //            display: "block",
+                //            width: "toggle"
+                //        });
+                //    }
+                //}
+            });
+        });
+    </script>
     @Html.GetGridHtml(Model, "contentPageGrid")
 }
 

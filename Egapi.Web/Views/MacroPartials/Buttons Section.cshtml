@@ -2,28 +2,6 @@
 @{
     var title = Model.MacroParameters["titleButton"] as string;
 }
-<div class="row">
-    <button class="btn btn-primary mt-4 mb-4">@title</button>
+<div class="row gridDiv">
+    <button class="gridButton btn btn-primary mt-4 mb-4">@title</button>
 </div>
-
-<script>
-    $(document).ready(function () {
-        //shows text-box search
-        var hide = $(".clearfix").children().children().children();
-
-        for (var i = 0; i < hide.length; i++) {
-            if (hide.eq(i).prop("tagName") != "DIV" && hide.eq(i).prop("tagName") != "H1") {
-                hide.eq(i).css("display", "none");
-            }
-        }
-
-        hide.eq(1).click(function () {
-            console.log("test");
-            hide.eq(5).animate({
-                opacity: "toggle",
-                display: "block",
-                width: "toggle"
-            });
-        });
-    });
-</script>
